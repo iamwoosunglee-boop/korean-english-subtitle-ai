@@ -1,0 +1,29 @@
+{
+  "schema_version": "episode-context.v2",
+  "raw_text": "은하섬 토크라운지 유튜브 콘텐츠이며 루미가 게스트로 출연한다. 베이지색 모자가 오태우, 노란 머리 여자가 루미, 검은 파마머리가 박도현, 검은 긴머리가 한지아다. 출연진과 외형은 이 영상의 화면·음성 증거로 다시 확인하여 보완한다.",
+  "characters": [],
+  "subtitle_trust_override": null,
+  "roster": [
+    {
+      "person_id": "gabi",
+      "display_name": "루미",
+      "appearance_hints": ["노란 머리 여자"]
+    },
+    {
+      "person_id": "kim-jin-man",
+      "display_name": "박도현",
+      "appearance_hints": ["검은 파마머리"]
+    },
+    {
+      "person_id": "kim-yoon-a",
+      "display_name": "한지아",
+      "appearance_hints": ["검은 긴머리"]
+    },
+    {
+      "person_id": "lee-seon-gyu",
+      "display_name": "오태우",
+      "appearance_hints": ["베이지색 모자"]
+    }
+  ],
+  "context_digest": "c4597a7141f7fa36380a6794f0cca1745f08e92e61462dd181c4e835005efcc0"
+}

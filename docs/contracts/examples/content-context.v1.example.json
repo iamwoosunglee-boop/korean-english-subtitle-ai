@@ -1,0 +1,53 @@
+{
+  "schema_version": "content-context.v1",
+  "asset_id": "prepared-context",
+  "revision_id": "prepared-context-revision",
+  "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+  "record_digest": "b7d78cfd95c19509e89863885f62c38dc89cd582999761675ec4800e64dccdaf",
+  "stage": "prepared",
+  "lifecycle_status": "draft",
+  "prepared_from_source_ref": {
+    "document_id": "source-document",
+    "revision_id": "source-revision",
+    "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+    "path": "../source/source.json"
+  },
+  "program": "토크라운지",
+  "episode_summary": "은하섬과 NOVA NOVA의 음악 토크쇼",
+  "evidence": {
+    "base_uri": "./evidence/",
+    "entries": [
+      {
+        "evidence_id": "frame-1",
+        "kind": "frame",
+        "media_type": "image/jpeg",
+        "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "locator": "frame-1.jpg",
+        "pts_ms": 500
+      }
+    ]
+  },
+  "participants": [
+    {
+      "participant_id": "sera",
+      "name_ko": "세라",
+      "name_en": "Sera",
+      "aliases": [
+        "세라"
+      ],
+      "role": "NOVA NOVA member",
+      "evidence_ids": []
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "nickname-rina",
+      "statement": "리나는 아리나의 실제 애칭이다.",
+      "participant_ids": [],
+      "scope_source_cue_ids": [],
+      "evidence_ids": [],
+      "decision_status": "human_confirmed",
+      "blocking": false
+    }
+  ]
+}

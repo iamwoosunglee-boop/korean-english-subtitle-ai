@@ -1,0 +1,79 @@
+{
+  "manifest": {
+    "duration_ms": 6000,
+    "frames": [
+      {
+        "frame_id": "f000001",
+        "frame_index": 0,
+        "pts_ms": 0,
+        "path": "frames/f000001.jpg"
+      },
+      {
+        "frame_id": "f000002",
+        "frame_index": 1,
+        "pts_ms": 2400,
+        "path": "frames/f000002.jpg"
+      },
+      {
+        "frame_id": "f000003",
+        "frame_index": 2,
+        "pts_ms": 4100,
+        "path": "frames/f000003.jpg"
+      },
+      {
+        "frame_id": "f000004",
+        "frame_index": 3,
+        "pts_ms": 5900,
+        "path": "frames/f000004.jpg"
+      }
+    ]
+  },
+  "audit_segments": [
+    {
+      "start_tc_ms": 0,
+      "end_tc_ms": 2400,
+      "owned_cue_sequences": [1],
+      "context_cue_sequences": [2]
+    },
+    {
+      "start_tc_ms": 2400,
+      "end_tc_ms": 6000,
+      "owned_cue_sequences": [2],
+      "context_cue_sequences": [1]
+    }
+  ],
+  "request": {
+    "start_tc_ms": 2000,
+    "end_tc_ms": 4200,
+    "frame_ids": ["f000002", "f000003"]
+  },
+  "sol": {
+    "scene": "발화자와 희미한 하단 문구가 함께 보인다.",
+    "rough_lower_third": "희미한 하단 문구",
+    "resolution": "unresolved",
+    "confidence": 0.55,
+    "first_visible_frame_id": "f000002",
+    "first_not_visible_frame_id": "f000003"
+  },
+  "terra": {
+    "scene": "발화자 하단의 문구가 명확히 식별된다.",
+    "rough_lower_third": "하단 문구",
+    "resolution": "resolved",
+    "confidence": 0.92,
+    "first_visible_frame_id": "f000002",
+    "first_not_visible_frame_id": "f000003"
+  },
+  "ocr": {
+    "scene": "OCR 보조 결과",
+    "rough_lower_third": "하단 문구",
+    "resolution": "resolved",
+    "confidence": 0.80,
+    "first_visible_frame_id": "f000002",
+    "first_not_visible_frame_id": "f000003"
+  },
+  "cue_sequence": 2,
+  "estimated_trust": "low",
+  "trust_override": "high",
+  "meaning_matches": true,
+  "audio_boundary_uncertain": true
+}

@@ -1,0 +1,296 @@
+{
+  "schema_version": "paired-diagnostic-input.v1",
+  "evaluation_kind": "same_video_paired_diagnostic",
+  "comparison_method": "comparable_intervals",
+  "alignment_basis": "source_identity_time_speaker",
+  "baseline_run": {
+    "run_id": "e00f79ca-c58d-4bb8-bf5e-023326759c40",
+    "contamination": "contaminated",
+    "label": "derived-assisted contaminated pre-change baseline"
+  },
+  "candidate_run": {
+    "run_id": "11111111-1111-4111-8111-111111111111",
+    "contamination": "policy_clean",
+    "label": "policy-clean paired diagnostic"
+  },
+  "policy_digest": "e7cb480c5a18879945e67c65bd42a72def32f8aa5e5ff5b0195eb76f3756721f",
+  "alignment_claims": [
+    {
+      "case_id": "condensed-genuine-caption",
+      "interval_id": "cmp-condensed",
+      "source_cue_ids": [
+        "src-condensed"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-condensed",
+      "start_ms": 1000,
+      "end_ms": 1800
+    },
+    {
+      "case_id": "verbatim-editorial-telop",
+      "interval_id": "cmp-telop",
+      "source_cue_ids": [
+        "src-telop"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-telop",
+      "start_ms": 2000,
+      "end_ms": 2600
+    },
+    {
+      "case_id": "local-span-repair",
+      "interval_id": "cmp-local",
+      "source_cue_ids": [
+        "src-local"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-local",
+      "start_ms": 3000,
+      "end_ms": 3600
+    },
+    {
+      "case_id": "full-cue-repair",
+      "interval_id": "cmp-full",
+      "source_cue_ids": [
+        "src-full"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-full",
+      "start_ms": 4000,
+      "end_ms": 4800
+    },
+    {
+      "case_id": "strong-visual-only-insertion",
+      "interval_id": "cmp-insert",
+      "source_cue_ids": [
+        "src-insert"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-insert",
+      "start_ms": 5000,
+      "end_ms": 5600
+    },
+    {
+      "case_id": "vad-negative-conflict",
+      "interval_id": "cmp-vad-negative",
+      "source_cue_ids": [
+        "src-vad-negative"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-vad-negative",
+      "start_ms": 6000,
+      "end_ms": 6600
+    },
+    {
+      "case_id": "static-editorial-overlay",
+      "interval_id": "cmp-static",
+      "source_cue_ids": [
+        "src-static"
+      ],
+      "speaker": "제작진",
+      "turn_id": "turn-static",
+      "start_ms": 7000,
+      "end_ms": 7600
+    },
+    {
+      "case_id": "cut-style-change",
+      "interval_id": "cmp-cut",
+      "source_cue_ids": [
+        "src-cut"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-cut",
+      "start_ms": 8000,
+      "end_ms": 8600
+    },
+    {
+      "case_id": "same-time-same-text-two-speakers",
+      "interval_id": "cmp-same-a",
+      "source_cue_ids": [
+        "src-same-a"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-same-a",
+      "start_ms": 9000,
+      "end_ms": 10000
+    },
+    {
+      "case_id": "same-time-same-text-two-speakers",
+      "interval_id": "cmp-same-b",
+      "source_cue_ids": [
+        "src-same-b"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-same-b",
+      "start_ms": 9000,
+      "end_ms": 10000
+    },
+    {
+      "case_id": "cumulative-reveal",
+      "interval_id": "cmp-cumulative",
+      "source_cue_ids": [
+        "src-cumulative"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-cumulative",
+      "start_ms": 10000,
+      "end_ms": 10800
+    },
+    {
+      "case_id": "derived-ko-en-track",
+      "interval_id": "cmp-ko-en",
+      "source_cue_ids": [
+        "src-ko-en"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-ko-en",
+      "start_ms": 11000,
+      "end_ms": 11800
+    },
+    {
+      "case_id": "duplicate-subtitle-track",
+      "interval_id": "cmp-duplicate",
+      "source_cue_ids": [
+        "src-duplicate"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-duplicate",
+      "start_ms": 12000,
+      "end_ms": 12800
+    },
+    {
+      "case_id": "repeated-subtitle-two-times",
+      "interval_id": "cmp-repeat-a",
+      "source_cue_ids": [
+        "src-repeat-a"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-repeat-a",
+      "start_ms": 13000,
+      "end_ms": 13800
+    },
+    {
+      "case_id": "repeated-subtitle-two-times",
+      "interval_id": "cmp-repeat-b",
+      "source_cue_ids": [
+        "src-repeat-b"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-repeat-b",
+      "start_ms": 14000,
+      "end_ms": 14800
+    },
+    {
+      "case_id": "overlap-two-bound-turns",
+      "interval_id": "cmp-overlap",
+      "source_cue_ids": [
+        "src-overlap-a",
+        "src-overlap-b"
+      ],
+      "speaker": "루미|한지아",
+      "turn_id": "turn-overlap",
+      "start_ms": 15000,
+      "end_ms": 16000
+    },
+    {
+      "case_id": "lower-third-non-speaker",
+      "interval_id": "cmp-lower-third",
+      "source_cue_ids": [
+        "src-lower-third"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-lower-third",
+      "start_ms": 16000,
+      "end_ms": 16800
+    },
+    {
+      "case_id": "window-duplicate-conflict",
+      "interval_id": "cmp-window-conflict",
+      "source_cue_ids": [
+        "src-window"
+      ],
+      "speaker": "한지아",
+      "turn_id": "turn-window",
+      "start_ms": 17000,
+      "end_ms": 17800
+    },
+    {
+      "case_id": "confirmed-field-conflict",
+      "interval_id": "cmp-confirmed",
+      "source_cue_ids": [
+        "src-confirmed"
+      ],
+      "speaker": "루미",
+      "turn_id": "turn-confirmed",
+      "start_ms": 18000,
+      "end_ms": 18800
+    }
+  ],
+  "outcomes": {
+    "correct_meaning_case_ids": [
+      "condensed-genuine-caption",
+      "verbatim-editorial-telop",
+      "local-span-repair",
+      "full-cue-repair",
+      "strong-visual-only-insertion",
+      "vad-negative-conflict",
+      "static-editorial-overlay",
+      "cut-style-change",
+      "same-time-same-text-two-speakers",
+      "cumulative-reveal",
+      "derived-ko-en-track",
+      "duplicate-subtitle-track",
+      "repeated-subtitle-two-times",
+      "overlap-two-bound-turns",
+      "lower-third-non-speaker",
+      "window-duplicate-conflict",
+      "confirmed-field-conflict"
+    ],
+    "mandatory_missing_before_case_ids": [
+      "local-span-repair",
+      "full-cue-repair",
+      "strong-visual-only-insertion",
+      "repeated-subtitle-two-times"
+    ],
+    "mandatory_missing_after_case_ids": [],
+    "auto_corrected_case_ids": [
+      "local-span-repair",
+      "full-cue-repair"
+    ],
+    "auto_inserted_case_ids": [
+      "strong-visual-only-insertion",
+      "repeated-subtitle-two-times"
+    ],
+    "changed_character_count": 3,
+    "correction_trace": [
+      {
+        "case_id": "local-span-repair",
+        "character_id": "char-local-1",
+        "value": "서",
+        "source_evidence_id": "observation-local",
+        "source_value": "서울"
+      },
+      {
+        "case_id": "full-cue-repair",
+        "character_id": "char-full-1",
+        "value": "브",
+        "source_evidence_id": "observation-full",
+        "source_value": "브룸"
+      },
+      {
+        "case_id": "strong-visual-only-insertion",
+        "character_id": "char-insert-1",
+        "value": "화",
+        "source_evidence_id": "observation-insert",
+        "source_value": "화면"
+      }
+    ]
+  },
+  "safety_counts": {
+    "disallowed_track_contribution": 0,
+    "non_speech_unknown_elevation": 0,
+    "user_confirmed_overwrite": 0,
+    "critical_wrong_owner": 0,
+    "correct_to_wrong_auto_damage": 0
+  }
+}

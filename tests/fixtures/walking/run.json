@@ -1,0 +1,39 @@
+{
+  "duration_ms": 6000,
+  "cues": [
+    {
+      "sequence": 1,
+      "start_tc_ms": 0,
+      "end_tc_ms": 2000,
+      "speech": "안녕하세요.",
+      "speaker": "미확인 인물",
+      "uncertainty": "certain",
+      "screen_text": null,
+      "vision_evidence_ids": ["vision-1"]
+    },
+    {
+      "sequence": 2,
+      "start_tc_ms": 2500,
+      "end_tc_ms": 4000,
+      "speech": "불확실한 문장",
+      "speaker": null,
+      "uncertainty": "needs_confirmation",
+      "screen_text": "화면 문구",
+      "vision_evidence_ids": ["vision-2"]
+    }
+  ],
+  "vision_evidence": [
+    {
+      "evidence_id": "vision-1",
+      "frame_ids": ["f000001"],
+      "scene": "한 인물이 말한다.",
+      "rough_lower_third": null
+    },
+    {
+      "evidence_id": "vision-2",
+      "frame_ids": ["f000002"],
+      "scene": "화면 하단에 문구가 보인다.",
+      "rough_lower_third": "화면 문구"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "include": ["src", "tests"],
+  "exclude": [".venv"],
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": ["src"]
+    }
+  ],
+  "stubPath": "typings",
+  "typeCheckingMode": "all",
+  "pythonVersion": "3.13",
+  "reportMissingTypeStubs": "error",
+  "reportUnnecessaryTypeIgnoreComment": "error"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "translation-document.v2",
+  "document_id": "translation-document",
+  "revision_id": "translation-revision",
+  "content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+  "record_digest": "4478eb4cdd321cc91fc226f1fd43ed1afe68b037f83d470592c5aeefe1b0c6a4",
+  "source_locale": "ko-KR",
+  "target_locale": "en-US",
+  "source_ref": {
+    "document_id": "source-document",
+    "revision_id": "source-revision",
+    "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+    "path": "../source/source.json"
+  },
+  "prepared_context_ref": {
+    "asset_id": "prepared-context",
+    "revision_id": "prepared-context-revision",
+    "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+    "path": "../assets/prepared-context.json"
+  },
+  "glossary_ref": {
+    "asset_id": "glossary",
+    "revision_id": "glossary-revision",
+    "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+    "path": "../assets/glossary.json"
+  },
+  "lifecycle_status": "draft",
+  "decision_status": "clear",
+  "cues": [
+    {
+      "sequence": 1,
+      "cue_id": "target:000001",
+      "source_cue_ids": [
+        "source:ass-dialogue:000001"
+      ],
+      "lineage_status": "confirmed",
+      "start_ms": 0,
+      "end_ms": 1000,
+      "text": "Welcome to Talk Lounge,",
+      "speakers": [
+        "한지아"
+      ],
+      "content_kind": "dialogue",
+      "context_ids": [],
+      "evidence_ids": []
+    }
+  ],
+  "unresolved_decisions": []
+}

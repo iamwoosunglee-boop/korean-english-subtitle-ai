@@ -1,0 +1,619 @@
+{
+  "schema_version": "canonical-digest-vectors.v1",
+  "profile": {
+    "base": "RFC 8785 JCS",
+    "encoding": "UTF-8 without BOM",
+    "unicode": "NFC required",
+    "numbers": "I-JSON safe integers only",
+    "null": "forbidden",
+    "arrays": "order preserved",
+    "object_keys": "raw UTF-16 code-unit order"
+  },
+  "jcs_vectors": [
+    {
+      "name": "utf16-property-order-nfc",
+      "input": {
+        "€": "Euro Sign",
+        "\r": "Carriage Return",
+        "": "Private Use After Surrogate Pair",
+        "1": "One",
+        "😀": "Emoji: Grinning Face",
+        "": "Control",
+        "ö": "Latin Small Letter O With Diaeresis"
+      },
+      "canonical_json": "{\"\\r\":\"Carriage Return\",\"1\":\"One\",\"\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😀\":\"Emoji: Grinning Face\",\"\":\"Private Use After Surrogate Pair\"}",
+      "canonical_utf8_hex": "7b225c72223a2243617272696167652052657475726e222c2231223a224f6e65222c22c280223a22436f6e74726f6c222c22c3b6223a224c6174696e20536d616c6c204c6574746572204f205769746820446961657265736973222c22e282ac223a224575726f205369676e222c22f09f9880223a22456d6f6a693a204772696e6e696e672046616365222c22ee8080223a22507269766174652055736520416674657220537572726f676174652050616972227d",
+      "sha256": "295eca328a80f07690c9dae7ce770224c82709bc0cf29f5a00d3acc5e3d76442"
+    },
+    {
+      "name": "nested-string-escaping",
+      "input": {
+        "z": [
+          {
+            "b": 2,
+            "a": 1
+          },
+          true
+        ],
+        "string": "€$\u000f\nA'B\"\\\\\"/"
+      },
+      "canonical_json": "{\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\",\"z\":[{\"a\":1,\"b\":2},true]}",
+      "canonical_utf8_hex": "7b22737472696e67223a22e282ac245c75303030665c6e4127425c225c5c5c5c5c222f222c227a223a5b7b2261223a312c2262223a327d2c747275655d7d",
+      "sha256": "694764f2be11d37b200094642a107547b3942e3ccdf20f609741965094f7986e"
+    },
+    {
+      "name": "safe-integer-boundaries",
+      "input": {
+        "maximum": 9007199254740991,
+        "minimum": -9007199254740991,
+        "zero": 0
+      },
+      "canonical_json": "{\"maximum\":9007199254740991,\"minimum\":-9007199254740991,\"zero\":0}",
+      "canonical_utf8_hex": "7b226d6178696d756d223a393030373139393235343734303939312c226d696e696d756d223a2d393030373139393235343734303939312c227a65726f223a307d",
+      "sha256": "6c2ebfc38ada26e6c5cac0887ce0571e3fe2bdd108725e1364e1dc23b6cfd0e0"
+    }
+  ],
+  "artifact_vectors": [
+    {
+      "artifact": "source-transcript.v2",
+      "content_projection": {
+        "schema_version": "source-transcript.v2",
+        "source_locale": "ko-KR",
+        "duration_ms": 2000,
+        "input_context_ref": {
+          "asset_id": "input-context",
+          "revision_id": "input-context-revision",
+          "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b"
+        },
+        "evidence": {
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "cues": [
+          {
+            "sequence": 1,
+            "cue_id": "source:ass-dialogue:000001",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "text": "토크 라운지에 오신",
+            "speakers": [
+              "한지아"
+            ],
+            "content_kind": "dialogue",
+            "evidence_ids": [
+              "frame-1"
+            ]
+          }
+        ]
+      },
+      "content_canonical_json": "{\"cues\":[{\"content_kind\":\"dialogue\",\"cue_id\":\"source:ass-dialogue:000001\",\"end_ms\":1000,\"evidence_ids\":[\"frame-1\"],\"sequence\":1,\"speakers\":[\"한지아\"],\"start_ms\":0,\"text\":\"토크 라운지에 오신\"}],\"duration_ms\":2000,\"evidence\":{\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"input_context_ref\":{\"asset_id\":\"input-context\",\"content_digest\":\"895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b\",\"revision_id\":\"input-context-revision\"},\"schema_version\":\"source-transcript.v2\",\"source_locale\":\"ko-KR\"}",
+      "content_utf8_hex": "7b2263756573223a5b7b22636f6e74656e745f6b696e64223a226469616c6f677565222c226375655f6964223a22736f757263653a6173732d6469616c6f6775653a303030303031222c22656e645f6d73223a313030302c2265766964656e63655f696473223a5b226672616d652d31225d2c2273657175656e6365223a312c22737065616b657273223a5b22ed959ceca780ec9584225d2c2273746172745f6d73223a302c2274657874223a22ed86a0ed81ac20eb9dbcec9ab4eca780ec979020ec98a4ec8ba0227d5d2c226475726174696f6e5f6d73223a323030302c2265766964656e6365223a7b22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c22696e7075745f636f6e746578745f726566223a7b2261737365745f6964223a22696e7075742d636f6e74657874222c22636f6e74656e745f646967657374223a2238393566353831376339626463343937616465336361383632376330623734323639346136303561313664666466616666346438623766633163333730353862222c227265766973696f6e5f6964223a22696e7075742d636f6e746578742d7265766973696f6e227d2c22736368656d615f76657273696f6e223a22736f757263652d7472616e7363726970742e7632222c22736f757263655f6c6f63616c65223a226b6f2d4b52227d",
+      "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+      "record_projection": {
+        "schema_version": "source-transcript.v2",
+        "document_id": "source-document",
+        "revision_id": "source-revision",
+        "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+        "lifecycle_status": "draft",
+        "source_locale": "ko-KR",
+        "duration_ms": 2000,
+        "input_context_ref": {
+          "asset_id": "input-context",
+          "revision_id": "input-context-revision",
+          "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b",
+          "path": "../assets/input-context.json"
+        },
+        "evidence": {
+          "base_uri": "./evidence/",
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "locator": "frame-1.jpg",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "cues": [
+          {
+            "sequence": 1,
+            "cue_id": "source:ass-dialogue:000001",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "text": "토크 라운지에 오신",
+            "speakers": [
+              "한지아"
+            ],
+            "content_kind": "dialogue",
+            "evidence_ids": [
+              "frame-1"
+            ]
+          }
+        ]
+      },
+      "record_canonical_json": "{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"cues\":[{\"content_kind\":\"dialogue\",\"cue_id\":\"source:ass-dialogue:000001\",\"end_ms\":1000,\"evidence_ids\":[\"frame-1\"],\"sequence\":1,\"speakers\":[\"한지아\"],\"start_ms\":0,\"text\":\"토크 라운지에 오신\"}],\"document_id\":\"source-document\",\"duration_ms\":2000,\"evidence\":{\"base_uri\":\"./evidence/\",\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"locator\":\"frame-1.jpg\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"input_context_ref\":{\"asset_id\":\"input-context\",\"content_digest\":\"895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b\",\"path\":\"../assets/input-context.json\",\"revision_id\":\"input-context-revision\"},\"lifecycle_status\":\"draft\",\"revision_id\":\"source-revision\",\"schema_version\":\"source-transcript.v2\",\"source_locale\":\"ko-KR\"}",
+      "record_utf8_hex": "7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c2263756573223a5b7b22636f6e74656e745f6b696e64223a226469616c6f677565222c226375655f6964223a22736f757263653a6173732d6469616c6f6775653a303030303031222c22656e645f6d73223a313030302c2265766964656e63655f696473223a5b226672616d652d31225d2c2273657175656e6365223a312c22737065616b657273223a5b22ed959ceca780ec9584225d2c2273746172745f6d73223a302c2274657874223a22ed86a0ed81ac20eb9dbcec9ab4eca780ec979020ec98a4ec8ba0227d5d2c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c226475726174696f6e5f6d73223a323030302c2265766964656e6365223a7b22626173655f757269223a222e2f65766964656e63652f222c22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226c6f6361746f72223a226672616d652d312e6a7067222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c22696e7075745f636f6e746578745f726566223a7b2261737365745f6964223a22696e7075742d636f6e74657874222c22636f6e74656e745f646967657374223a2238393566353831376339626463343937616465336361383632376330623734323639346136303561313664666466616666346438623766633163333730353862222c2270617468223a222e2e2f6173736574732f696e7075742d636f6e746578742e6a736f6e222c227265766973696f6e5f6964223a22696e7075742d636f6e746578742d7265766973696f6e227d2c226c6966656379636c655f737461747573223a226472616674222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e222c22736368656d615f76657273696f6e223a22736f757263652d7472616e7363726970742e7632222c22736f757263655f6c6f63616c65223a226b6f2d4b52227d",
+      "record_digest": "1501fd9cb08269fedb527a4b6494ac64e949c40aa67094b5ff6c1e131e0bb13f"
+    },
+    {
+      "artifact": "translation-document.v2",
+      "content_projection": {
+        "schema_version": "translation-document.v2",
+        "source_locale": "ko-KR",
+        "target_locale": "en-US",
+        "source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5"
+        },
+        "prepared_context_ref": {
+          "asset_id": "prepared-context",
+          "revision_id": "prepared-context-revision",
+          "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782"
+        },
+        "glossary_ref": {
+          "asset_id": "glossary",
+          "revision_id": "glossary-revision",
+          "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07"
+        },
+        "decision_status": "clear",
+        "cues": [
+          {
+            "sequence": 1,
+            "cue_id": "target:000001",
+            "source_cue_ids": [
+              "source:ass-dialogue:000001"
+            ],
+            "lineage_status": "confirmed",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "text": "Welcome to Talk Lounge,",
+            "speakers": [
+              "한지아"
+            ],
+            "content_kind": "dialogue",
+            "context_ids": [],
+            "evidence_ids": []
+          }
+        ],
+        "unresolved_decisions": []
+      },
+      "content_canonical_json": "{\"cues\":[{\"content_kind\":\"dialogue\",\"context_ids\":[],\"cue_id\":\"target:000001\",\"end_ms\":1000,\"evidence_ids\":[],\"lineage_status\":\"confirmed\",\"sequence\":1,\"source_cue_ids\":[\"source:ass-dialogue:000001\"],\"speakers\":[\"한지아\"],\"start_ms\":0,\"text\":\"Welcome to Talk Lounge,\"}],\"decision_status\":\"clear\",\"glossary_ref\":{\"asset_id\":\"glossary\",\"content_digest\":\"85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07\",\"revision_id\":\"glossary-revision\"},\"prepared_context_ref\":{\"asset_id\":\"prepared-context\",\"content_digest\":\"bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782\",\"revision_id\":\"prepared-context-revision\"},\"schema_version\":\"translation-document.v2\",\"source_locale\":\"ko-KR\",\"source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"revision_id\":\"source-revision\"},\"target_locale\":\"en-US\",\"unresolved_decisions\":[]}",
+      "content_utf8_hex": "7b2263756573223a5b7b22636f6e74656e745f6b696e64223a226469616c6f677565222c22636f6e746578745f696473223a5b5d2c226375655f6964223a227461726765743a303030303031222c22656e645f6d73223a313030302c2265766964656e63655f696473223a5b5d2c226c696e656167655f737461747573223a22636f6e6669726d6564222c2273657175656e6365223a312c22736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c22737065616b657273223a5b22ed959ceca780ec9584225d2c2273746172745f6d73223a302c2274657874223a2257656c636f6d6520746f2054616c6b204c6f756e67652c227d5d2c226465636973696f6e5f737461747573223a22636c656172222c22676c6f73736172795f726566223a7b2261737365745f6964223a22676c6f7373617279222c22636f6e74656e745f646967657374223a2238356438663635396132383666616532393937343932653535326466363663356166663162666631313464396365373833333165616635353138373064633037222c227265766973696f6e5f6964223a22676c6f73736172792d7265766973696f6e227d2c2270726570617265645f636f6e746578745f726566223a7b2261737365745f6964223a2270726570617265642d636f6e74657874222c22636f6e74656e745f646967657374223a2262626637333937366238373165623735623138656335353433333161303165626565643666623430383934306266313037376132663062396537326266373832222c227265766973696f6e5f6964223a2270726570617265642d636f6e746578742d7265766973696f6e227d2c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d646f63756d656e742e7632222c22736f757263655f6c6f63616c65223a226b6f2d4b52222c22736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c227461726765745f6c6f63616c65223a22656e2d5553222c22756e7265736f6c7665645f6465636973696f6e73223a5b5d7d",
+      "content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+      "record_projection": {
+        "schema_version": "translation-document.v2",
+        "document_id": "translation-document",
+        "revision_id": "translation-revision",
+        "content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+        "source_locale": "ko-KR",
+        "target_locale": "en-US",
+        "source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+          "path": "../source/source.json"
+        },
+        "prepared_context_ref": {
+          "asset_id": "prepared-context",
+          "revision_id": "prepared-context-revision",
+          "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+          "path": "../assets/prepared-context.json"
+        },
+        "glossary_ref": {
+          "asset_id": "glossary",
+          "revision_id": "glossary-revision",
+          "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+          "path": "../assets/glossary.json"
+        },
+        "lifecycle_status": "draft",
+        "decision_status": "clear",
+        "cues": [
+          {
+            "sequence": 1,
+            "cue_id": "target:000001",
+            "source_cue_ids": [
+              "source:ass-dialogue:000001"
+            ],
+            "lineage_status": "confirmed",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "text": "Welcome to Talk Lounge,",
+            "speakers": [
+              "한지아"
+            ],
+            "content_kind": "dialogue",
+            "context_ids": [],
+            "evidence_ids": []
+          }
+        ],
+        "unresolved_decisions": []
+      },
+      "record_canonical_json": "{\"content_digest\":\"f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c\",\"cues\":[{\"content_kind\":\"dialogue\",\"context_ids\":[],\"cue_id\":\"target:000001\",\"end_ms\":1000,\"evidence_ids\":[],\"lineage_status\":\"confirmed\",\"sequence\":1,\"source_cue_ids\":[\"source:ass-dialogue:000001\"],\"speakers\":[\"한지아\"],\"start_ms\":0,\"text\":\"Welcome to Talk Lounge,\"}],\"decision_status\":\"clear\",\"document_id\":\"translation-document\",\"glossary_ref\":{\"asset_id\":\"glossary\",\"content_digest\":\"85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07\",\"path\":\"../assets/glossary.json\",\"revision_id\":\"glossary-revision\"},\"lifecycle_status\":\"draft\",\"prepared_context_ref\":{\"asset_id\":\"prepared-context\",\"content_digest\":\"bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782\",\"path\":\"../assets/prepared-context.json\",\"revision_id\":\"prepared-context-revision\"},\"revision_id\":\"translation-revision\",\"schema_version\":\"translation-document.v2\",\"source_locale\":\"ko-KR\",\"source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"path\":\"../source/source.json\",\"revision_id\":\"source-revision\"},\"target_locale\":\"en-US\",\"unresolved_decisions\":[]}",
+      "record_utf8_hex": "7b22636f6e74656e745f646967657374223a2266383566306437396434666365323436333861613836366431656437643037376265643161393265313766323732323064633561643363386562643933343763222c2263756573223a5b7b22636f6e74656e745f6b696e64223a226469616c6f677565222c22636f6e746578745f696473223a5b5d2c226375655f6964223a227461726765743a303030303031222c22656e645f6d73223a313030302c2265766964656e63655f696473223a5b5d2c226c696e656167655f737461747573223a22636f6e6669726d6564222c2273657175656e6365223a312c22736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c22737065616b657273223a5b22ed959ceca780ec9584225d2c2273746172745f6d73223a302c2274657874223a2257656c636f6d6520746f2054616c6b204c6f756e67652c227d5d2c226465636973696f6e5f737461747573223a22636c656172222c22646f63756d656e745f6964223a227472616e736c6174696f6e2d646f63756d656e74222c22676c6f73736172795f726566223a7b2261737365745f6964223a22676c6f7373617279222c22636f6e74656e745f646967657374223a2238356438663635396132383666616532393937343932653535326466363663356166663162666631313464396365373833333165616635353138373064633037222c2270617468223a222e2e2f6173736574732f676c6f73736172792e6a736f6e222c227265766973696f6e5f6964223a22676c6f73736172792d7265766973696f6e227d2c226c6966656379636c655f737461747573223a226472616674222c2270726570617265645f636f6e746578745f726566223a7b2261737365745f6964223a2270726570617265642d636f6e74657874222c22636f6e74656e745f646967657374223a2262626637333937366238373165623735623138656335353433333161303165626565643666623430383934306266313037376132663062396537326266373832222c2270617468223a222e2e2f6173736574732f70726570617265642d636f6e746578742e6a736f6e222c227265766973696f6e5f6964223a2270726570617265642d636f6e746578742d7265766973696f6e227d2c227265766973696f6e5f6964223a227472616e736c6174696f6e2d7265766973696f6e222c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d646f63756d656e742e7632222c22736f757263655f6c6f63616c65223a226b6f2d4b52222c22736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c2270617468223a222e2e2f736f757263652f736f757263652e6a736f6e222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c227461726765745f6c6f63616c65223a22656e2d5553222c22756e7265736f6c7665645f6465636973696f6e73223a5b5d7d",
+      "record_digest": "4478eb4cdd321cc91fc226f1fd43ed1afe68b037f83d470592c5aeefe1b0c6a4"
+    },
+    {
+      "artifact": "content-context.v1",
+      "content_projection": {
+        "schema_version": "content-context.v1",
+        "stage": "prepared",
+        "program": "토크라운지",
+        "episode_summary": "은하섬과 NOVA NOVA의 음악 토크쇼",
+        "evidence": {
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "participants": [
+          {
+            "participant_id": "sera",
+            "name_ko": "세라",
+            "name_en": "Sera",
+            "aliases": [
+              "세라"
+            ],
+            "role": "NOVA NOVA member",
+            "evidence_ids": []
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "nickname-rina",
+            "statement": "리나는 아리나의 실제 애칭이다.",
+            "participant_ids": [],
+            "scope_source_cue_ids": [],
+            "evidence_ids": [],
+            "decision_status": "human_confirmed",
+            "blocking": false
+          }
+        ],
+        "prepared_from_source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5"
+        }
+      },
+      "content_canonical_json": "{\"episode_summary\":\"은하섬과 NOVA NOVA의 음악 토크쇼\",\"evidence\":{\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"facts\":[{\"blocking\":false,\"decision_status\":\"human_confirmed\",\"evidence_ids\":[],\"fact_id\":\"nickname-rina\",\"participant_ids\":[],\"scope_source_cue_ids\":[],\"statement\":\"리나는 아리나의 실제 애칭이다.\"}],\"participants\":[{\"aliases\":[\"세라\"],\"evidence_ids\":[],\"name_en\":\"Sera\",\"name_ko\":\"세라\",\"participant_id\":\"sera\",\"role\":\"NOVA NOVA member\"}],\"prepared_from_source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"revision_id\":\"source-revision\"},\"program\":\"토크라운지\",\"schema_version\":\"content-context.v1\",\"stage\":\"prepared\"}",
+      "content_utf8_hex": "7b22657069736f64655f73756d6d617279223a22ec9d80ed9598ec84aceab3bc204e4f5641204e4f5641ec9d9820ec9d8cec958520ed86a0ed81acec87bc222c2265766964656e6365223a7b22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c226661637473223a5b7b22626c6f636b696e67223a66616c73652c226465636973696f6e5f737461747573223a2268756d616e5f636f6e6669726d6564222c2265766964656e63655f696473223a5b5d2c22666163745f6964223a226e69636b6e616d652d72696e61222c227061727469636970616e745f696473223a5b5d2c2273636f70655f736f757263655f6375655f696473223a5b5d2c2273746174656d656e74223a22eba6aceb8298eb8a9420ec9584eba6aceb8298ec9d9820ec8ba4eca09c20ec95a0ecb9adec9db4eb8ba42e227d5d2c227061727469636970616e7473223a5b7b22616c6961736573223a5b22ec84b8eb9dbc225d2c2265766964656e63655f696473223a5b5d2c226e616d655f656e223a2253657261222c226e616d655f6b6f223a22ec84b8eb9dbc222c227061727469636970616e745f6964223a2273657261222c22726f6c65223a224e4f5641204e4f5641206d656d626572227d5d2c2270726570617265645f66726f6d5f736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c2270726f6772616d223a22ed86a0ed81aceb9dbcec9ab4eca780222c22736368656d615f76657273696f6e223a22636f6e74656e742d636f6e746578742e7631222c227374616765223a227072657061726564227d",
+      "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+      "record_projection": {
+        "schema_version": "content-context.v1",
+        "asset_id": "prepared-context",
+        "revision_id": "prepared-context-revision",
+        "content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+        "stage": "prepared",
+        "lifecycle_status": "draft",
+        "prepared_from_source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+          "path": "../source/source.json"
+        },
+        "program": "토크라운지",
+        "episode_summary": "은하섬과 NOVA NOVA의 음악 토크쇼",
+        "evidence": {
+          "base_uri": "./evidence/",
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "locator": "frame-1.jpg",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "participants": [
+          {
+            "participant_id": "sera",
+            "name_ko": "세라",
+            "name_en": "Sera",
+            "aliases": [
+              "세라"
+            ],
+            "role": "NOVA NOVA member",
+            "evidence_ids": []
+          }
+        ],
+        "facts": [
+          {
+            "fact_id": "nickname-rina",
+            "statement": "리나는 아리나의 실제 애칭이다.",
+            "participant_ids": [],
+            "scope_source_cue_ids": [],
+            "evidence_ids": [],
+            "decision_status": "human_confirmed",
+            "blocking": false
+          }
+        ]
+      },
+      "record_canonical_json": "{\"asset_id\":\"prepared-context\",\"content_digest\":\"bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782\",\"episode_summary\":\"은하섬과 NOVA NOVA의 음악 토크쇼\",\"evidence\":{\"base_uri\":\"./evidence/\",\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"locator\":\"frame-1.jpg\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"facts\":[{\"blocking\":false,\"decision_status\":\"human_confirmed\",\"evidence_ids\":[],\"fact_id\":\"nickname-rina\",\"participant_ids\":[],\"scope_source_cue_ids\":[],\"statement\":\"리나는 아리나의 실제 애칭이다.\"}],\"lifecycle_status\":\"draft\",\"participants\":[{\"aliases\":[\"세라\"],\"evidence_ids\":[],\"name_en\":\"Sera\",\"name_ko\":\"세라\",\"participant_id\":\"sera\",\"role\":\"NOVA NOVA member\"}],\"prepared_from_source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"path\":\"../source/source.json\",\"revision_id\":\"source-revision\"},\"program\":\"토크라운지\",\"revision_id\":\"prepared-context-revision\",\"schema_version\":\"content-context.v1\",\"stage\":\"prepared\"}",
+      "record_utf8_hex": "7b2261737365745f6964223a2270726570617265642d636f6e74657874222c22636f6e74656e745f646967657374223a2262626637333937366238373165623735623138656335353433333161303165626565643666623430383934306266313037376132663062396537326266373832222c22657069736f64655f73756d6d617279223a22ec9d80ed9598ec84aceab3bc204e4f5641204e4f5641ec9d9820ec9d8cec958520ed86a0ed81acec87bc222c2265766964656e6365223a7b22626173655f757269223a222e2f65766964656e63652f222c22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226c6f6361746f72223a226672616d652d312e6a7067222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c226661637473223a5b7b22626c6f636b696e67223a66616c73652c226465636973696f6e5f737461747573223a2268756d616e5f636f6e6669726d6564222c2265766964656e63655f696473223a5b5d2c22666163745f6964223a226e69636b6e616d652d72696e61222c227061727469636970616e745f696473223a5b5d2c2273636f70655f736f757263655f6375655f696473223a5b5d2c2273746174656d656e74223a22eba6aceb8298eb8a9420ec9584eba6aceb8298ec9d9820ec8ba4eca09c20ec95a0ecb9adec9db4eb8ba42e227d5d2c226c6966656379636c655f737461747573223a226472616674222c227061727469636970616e7473223a5b7b22616c6961736573223a5b22ec84b8eb9dbc225d2c2265766964656e63655f696473223a5b5d2c226e616d655f656e223a2253657261222c226e616d655f6b6f223a22ec84b8eb9dbc222c227061727469636970616e745f6964223a2273657261222c22726f6c65223a224e4f5641204e4f5641206d656d626572227d5d2c2270726570617265645f66726f6d5f736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c2270617468223a222e2e2f736f757263652f736f757263652e6a736f6e222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c2270726f6772616d223a22ed86a0ed81aceb9dbcec9ab4eca780222c227265766973696f6e5f6964223a2270726570617265642d636f6e746578742d7265766973696f6e222c22736368656d615f76657273696f6e223a22636f6e74656e742d636f6e746578742e7631222c227374616765223a227072657061726564227d",
+      "record_digest": "b7d78cfd95c19509e89863885f62c38dc89cd582999761675ec4800e64dccdaf"
+    },
+    {
+      "artifact": "content-context.input.v1",
+      "content_projection": {
+        "schema_version": "content-context.v1",
+        "stage": "input",
+        "program": "토크라운지",
+        "episode_summary": "은하섬이 진행하고 NOVA NOVA가 출연하는 음악 토크쇼",
+        "evidence": {
+          "entries": []
+        },
+        "participants": [
+          {
+            "participant_id": "kim-yuna",
+            "name_ko": "한지아",
+            "name_en": "Han Jia",
+            "aliases": [
+              "한지아"
+            ],
+            "role": "Eunhaseom vocalist and host",
+            "evidence_ids": []
+          }
+        ],
+        "facts": []
+      },
+      "content_canonical_json": "{\"episode_summary\":\"은하섬이 진행하고 NOVA NOVA가 출연하는 음악 토크쇼\",\"evidence\":{\"entries\":[]},\"facts\":[],\"participants\":[{\"aliases\":[\"한지아\"],\"evidence_ids\":[],\"name_en\":\"Han Jia\",\"name_ko\":\"한지아\",\"participant_id\":\"kim-yuna\",\"role\":\"Eunhaseom vocalist and host\"}],\"program\":\"토크라운지\",\"schema_version\":\"content-context.v1\",\"stage\":\"input\"}",
+      "content_utf8_hex": "7b22657069736f64655f73756d6d617279223a22ec9d80ed9598ec84acec9db420eca784ed9689ed9598eab3a0204e4f5641204e4f5641eab08020ecb69cec97b0ed9598eb8a9420ec9d8cec958520ed86a0ed81acec87bc222c2265766964656e6365223a7b22656e7472696573223a5b5d7d2c226661637473223a5b5d2c227061727469636970616e7473223a5b7b22616c6961736573223a5b22ed959ceca780ec9584225d2c2265766964656e63655f696473223a5b5d2c226e616d655f656e223a2248616e204a6961222c226e616d655f6b6f223a22ed959ceca780ec9584222c227061727469636970616e745f6964223a226b696d2d79756e61222c22726f6c65223a2245756e686173656f6d20766f63616c69737420616e6420686f7374227d5d2c2270726f6772616d223a22ed86a0ed81aceb9dbcec9ab4eca780222c22736368656d615f76657273696f6e223a22636f6e74656e742d636f6e746578742e7631222c227374616765223a22696e707574227d",
+      "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b",
+      "record_projection": {
+        "schema_version": "content-context.v1",
+        "asset_id": "input-context",
+        "revision_id": "input-context-revision",
+        "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b",
+        "stage": "input",
+        "lifecycle_status": "ready",
+        "program": "토크라운지",
+        "episode_summary": "은하섬이 진행하고 NOVA NOVA가 출연하는 음악 토크쇼",
+        "evidence": {
+          "base_uri": "./evidence/",
+          "entries": []
+        },
+        "participants": [
+          {
+            "participant_id": "kim-yuna",
+            "name_ko": "한지아",
+            "name_en": "Han Jia",
+            "aliases": [
+              "한지아"
+            ],
+            "role": "Eunhaseom vocalist and host",
+            "evidence_ids": []
+          }
+        ],
+        "facts": []
+      },
+      "record_canonical_json": "{\"asset_id\":\"input-context\",\"content_digest\":\"895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b\",\"episode_summary\":\"은하섬이 진행하고 NOVA NOVA가 출연하는 음악 토크쇼\",\"evidence\":{\"base_uri\":\"./evidence/\",\"entries\":[]},\"facts\":[],\"lifecycle_status\":\"ready\",\"participants\":[{\"aliases\":[\"한지아\"],\"evidence_ids\":[],\"name_en\":\"Han Jia\",\"name_ko\":\"한지아\",\"participant_id\":\"kim-yuna\",\"role\":\"Eunhaseom vocalist and host\"}],\"program\":\"토크라운지\",\"revision_id\":\"input-context-revision\",\"schema_version\":\"content-context.v1\",\"stage\":\"input\"}",
+      "record_utf8_hex": "7b2261737365745f6964223a22696e7075742d636f6e74657874222c22636f6e74656e745f646967657374223a2238393566353831376339626463343937616465336361383632376330623734323639346136303561313664666466616666346438623766633163333730353862222c22657069736f64655f73756d6d617279223a22ec9d80ed9598ec84acec9db420eca784ed9689ed9598eab3a0204e4f5641204e4f5641eab08020ecb69cec97b0ed9598eb8a9420ec9d8cec958520ed86a0ed81acec87bc222c2265766964656e6365223a7b22626173655f757269223a222e2f65766964656e63652f222c22656e7472696573223a5b5d7d2c226661637473223a5b5d2c226c6966656379636c655f737461747573223a227265616479222c227061727469636970616e7473223a5b7b22616c6961736573223a5b22ed959ceca780ec9584225d2c2265766964656e63655f696473223a5b5d2c226e616d655f656e223a2248616e204a6961222c226e616d655f6b6f223a22ed959ceca780ec9584222c227061727469636970616e745f6964223a226b696d2d79756e61222c22726f6c65223a2245756e686173656f6d20766f63616c69737420616e6420686f7374227d5d2c2270726f6772616d223a22ed86a0ed81aceb9dbcec9ab4eca780222c227265766973696f6e5f6964223a22696e7075742d636f6e746578742d7265766973696f6e222c22736368656d615f76657273696f6e223a22636f6e74656e742d636f6e746578742e7631222c227374616765223a22696e707574227d",
+      "record_digest": "56db27c77a34faabf6cb3f531e2404da66b28d9200e24b39c7b9633434f75d3a"
+    },
+    {
+      "artifact": "translation-glossary.v1",
+      "content_projection": {
+        "schema_version": "translation-glossary.v1",
+        "prepared_from_source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5"
+        },
+        "evidence": {
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "entries": [
+          {
+            "entry_id": "sera-name",
+            "source_variants": [
+              "세라"
+            ],
+            "preferred_target": "Sera",
+            "type": "person_name",
+            "instruction": "Use the official stage name.",
+            "scope_source_cue_ids": [],
+            "decision_status": "verified",
+            "blocking": false,
+            "case_sensitive": true,
+            "evidence_ids": [],
+            "note": "Official English spelling"
+          }
+        ]
+      },
+      "content_canonical_json": "{\"entries\":[{\"blocking\":false,\"case_sensitive\":true,\"decision_status\":\"verified\",\"entry_id\":\"sera-name\",\"evidence_ids\":[],\"instruction\":\"Use the official stage name.\",\"note\":\"Official English spelling\",\"preferred_target\":\"Sera\",\"scope_source_cue_ids\":[],\"source_variants\":[\"세라\"],\"type\":\"person_name\"}],\"evidence\":{\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"prepared_from_source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"revision_id\":\"source-revision\"},\"schema_version\":\"translation-glossary.v1\"}",
+      "content_utf8_hex": "7b22656e7472696573223a5b7b22626c6f636b696e67223a66616c73652c22636173655f73656e736974697665223a747275652c226465636973696f6e5f737461747573223a227665726966696564222c22656e7472795f6964223a22736572612d6e616d65222c2265766964656e63655f696473223a5b5d2c22696e737472756374696f6e223a2255736520746865206f6666696369616c207374616765206e616d652e222c226e6f7465223a224f6666696369616c20456e676c697368207370656c6c696e67222c227072656665727265645f746172676574223a2253657261222c2273636f70655f736f757263655f6375655f696473223a5b5d2c22736f757263655f76617269616e7473223a5b22ec84b8eb9dbc225d2c2274797065223a22706572736f6e5f6e616d65227d5d2c2265766964656e6365223a7b22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c2270726570617265645f66726f6d5f736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d676c6f73736172792e7631227d",
+      "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+      "record_projection": {
+        "schema_version": "translation-glossary.v1",
+        "asset_id": "glossary",
+        "revision_id": "glossary-revision",
+        "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+        "lifecycle_status": "draft",
+        "prepared_from_source_ref": {
+          "document_id": "source-document",
+          "revision_id": "source-revision",
+          "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+          "path": "../source/source.json"
+        },
+        "evidence": {
+          "base_uri": "./evidence/",
+          "entries": [
+            {
+              "evidence_id": "frame-1",
+              "kind": "frame",
+              "media_type": "image/jpeg",
+              "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "locator": "frame-1.jpg",
+              "pts_ms": 500
+            }
+          ]
+        },
+        "entries": [
+          {
+            "entry_id": "sera-name",
+            "source_variants": [
+              "세라"
+            ],
+            "preferred_target": "Sera",
+            "type": "person_name",
+            "instruction": "Use the official stage name.",
+            "scope_source_cue_ids": [],
+            "decision_status": "verified",
+            "blocking": false,
+            "case_sensitive": true,
+            "evidence_ids": [],
+            "note": "Official English spelling"
+          }
+        ]
+      },
+      "record_canonical_json": "{\"asset_id\":\"glossary\",\"content_digest\":\"85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07\",\"entries\":[{\"blocking\":false,\"case_sensitive\":true,\"decision_status\":\"verified\",\"entry_id\":\"sera-name\",\"evidence_ids\":[],\"instruction\":\"Use the official stage name.\",\"note\":\"Official English spelling\",\"preferred_target\":\"Sera\",\"scope_source_cue_ids\":[],\"source_variants\":[\"세라\"],\"type\":\"person_name\"}],\"evidence\":{\"base_uri\":\"./evidence/\",\"entries\":[{\"evidence_id\":\"frame-1\",\"kind\":\"frame\",\"locator\":\"frame-1.jpg\",\"media_type\":\"image/jpeg\",\"pts_ms\":500,\"resource_digest\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}]},\"lifecycle_status\":\"draft\",\"prepared_from_source_ref\":{\"content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"document_id\":\"source-document\",\"path\":\"../source/source.json\",\"revision_id\":\"source-revision\"},\"revision_id\":\"glossary-revision\",\"schema_version\":\"translation-glossary.v1\"}",
+      "record_utf8_hex": "7b2261737365745f6964223a22676c6f7373617279222c22636f6e74656e745f646967657374223a2238356438663635396132383666616532393937343932653535326466363663356166663162666631313464396365373833333165616635353138373064633037222c22656e7472696573223a5b7b22626c6f636b696e67223a66616c73652c22636173655f73656e736974697665223a747275652c226465636973696f6e5f737461747573223a227665726966696564222c22656e7472795f6964223a22736572612d6e616d65222c2265766964656e63655f696473223a5b5d2c22696e737472756374696f6e223a2255736520746865206f6666696369616c207374616765206e616d652e222c226e6f7465223a224f6666696369616c20456e676c697368207370656c6c696e67222c227072656665727265645f746172676574223a2253657261222c2273636f70655f736f757263655f6375655f696473223a5b5d2c22736f757263655f76617269616e7473223a5b22ec84b8eb9dbc225d2c2274797065223a22706572736f6e5f6e616d65227d5d2c2265766964656e6365223a7b22626173655f757269223a222e2f65766964656e63652f222c22656e7472696573223a5b7b2265766964656e63655f6964223a226672616d652d31222c226b696e64223a226672616d65222c226c6f6361746f72223a226672616d652d312e6a7067222c226d656469615f74797065223a22696d6167652f6a706567222c227074735f6d73223a3530302c227265736f757263655f646967657374223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262227d5d7d2c226c6966656379636c655f737461747573223a226472616674222c2270726570617265645f66726f6d5f736f757263655f726566223a7b22636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c2270617468223a222e2e2f736f757263652f736f757263652e6a736f6e222c227265766973696f6e5f6964223a22736f757263652d7265766973696f6e227d2c227265766973696f6e5f6964223a22676c6f73736172792d7265766973696f6e222c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d676c6f73736172792e7631227d",
+      "record_digest": "65447b5a7ce693cf5180dc65784320d724b0a5dc97af8f007d7b04b04b0356bb"
+    },
+    {
+      "artifact": "translation-review.v1",
+      "content_projection": {
+        "schema_version": "translation-review.v1",
+        "binding": {
+          "translation_document_id": "translation-document",
+          "translation_revision_id": "translation-revision",
+          "candidate_content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+          "source_document_id": "source-document",
+          "source_revision_id": "source-revision",
+          "source_content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+          "prepared_context_asset_id": "prepared-context",
+          "prepared_context_revision_id": "prepared-context-revision",
+          "prepared_context_content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+          "glossary_asset_id": "glossary",
+          "glossary_revision_id": "glossary-revision",
+          "glossary_content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+          "review_profile": {
+            "profile_id": "en-us-editorial-review",
+            "version": "2.0"
+          }
+        },
+        "coverage": {
+          "source_cue_ids": [
+            "source:ass-dialogue:000001"
+          ],
+          "target_cue_ids": [
+            "target:000001"
+          ],
+          "target_boundary_pairs": [],
+          "glossary_entry_ids": [
+            "sera-name"
+          ]
+        },
+        "result": "failed",
+        "findings": [
+          {
+            "finding_id": "finding-1",
+            "affected_source_cue_ids": [
+              "source:ass-dialogue:000001"
+            ],
+            "affected_target_cue_ids": [
+              "target:000001"
+            ],
+            "domain": "naturalness",
+            "severity": "major",
+            "blocking": true,
+            "problem": "The line reads like a literal translation.",
+            "required_change": "Rewrite it as natural en-US dialogue.",
+            "resolution_status": "open"
+          }
+        ]
+      },
+      "content_canonical_json": "{\"binding\":{\"candidate_content_digest\":\"f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c\",\"glossary_asset_id\":\"glossary\",\"glossary_content_digest\":\"85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07\",\"glossary_revision_id\":\"glossary-revision\",\"prepared_context_asset_id\":\"prepared-context\",\"prepared_context_content_digest\":\"bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782\",\"prepared_context_revision_id\":\"prepared-context-revision\",\"review_profile\":{\"profile_id\":\"en-us-editorial-review\",\"version\":\"2.0\"},\"source_content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"source_document_id\":\"source-document\",\"source_revision_id\":\"source-revision\",\"translation_document_id\":\"translation-document\",\"translation_revision_id\":\"translation-revision\"},\"coverage\":{\"glossary_entry_ids\":[\"sera-name\"],\"source_cue_ids\":[\"source:ass-dialogue:000001\"],\"target_boundary_pairs\":[],\"target_cue_ids\":[\"target:000001\"]},\"findings\":[{\"affected_source_cue_ids\":[\"source:ass-dialogue:000001\"],\"affected_target_cue_ids\":[\"target:000001\"],\"blocking\":true,\"domain\":\"naturalness\",\"finding_id\":\"finding-1\",\"problem\":\"The line reads like a literal translation.\",\"required_change\":\"Rewrite it as natural en-US dialogue.\",\"resolution_status\":\"open\",\"severity\":\"major\"}],\"result\":\"failed\",\"schema_version\":\"translation-review.v1\"}",
+      "content_utf8_hex": "7b2262696e64696e67223a7b2263616e6469646174655f636f6e74656e745f646967657374223a2266383566306437396434666365323436333861613836366431656437643037376265643161393265313766323732323064633561643363386562643933343763222c22676c6f73736172795f61737365745f6964223a22676c6f7373617279222c22676c6f73736172795f636f6e74656e745f646967657374223a2238356438663635396132383666616532393937343932653535326466363663356166663162666631313464396365373833333165616635353138373064633037222c22676c6f73736172795f7265766973696f6e5f6964223a22676c6f73736172792d7265766973696f6e222c2270726570617265645f636f6e746578745f61737365745f6964223a2270726570617265642d636f6e74657874222c2270726570617265645f636f6e746578745f636f6e74656e745f646967657374223a2262626637333937366238373165623735623138656335353433333161303165626565643666623430383934306266313037376132663062396537326266373832222c2270726570617265645f636f6e746578745f7265766973696f6e5f6964223a2270726570617265642d636f6e746578742d7265766973696f6e222c227265766965775f70726f66696c65223a7b2270726f66696c655f6964223a22656e2d75732d656469746f7269616c2d726576696577222c2276657273696f6e223a22322e30227d2c22736f757263655f636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22736f757263655f646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c22736f757263655f7265766973696f6e5f6964223a22736f757263652d7265766973696f6e222c227472616e736c6174696f6e5f646f63756d656e745f6964223a227472616e736c6174696f6e2d646f63756d656e74222c227472616e736c6174696f6e5f7265766973696f6e5f6964223a227472616e736c6174696f6e2d7265766973696f6e227d2c22636f766572616765223a7b22676c6f73736172795f656e7472795f696473223a5b22736572612d6e616d65225d2c22736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c227461726765745f626f756e646172795f7061697273223a5b5d2c227461726765745f6375655f696473223a5b227461726765743a303030303031225d7d2c2266696e64696e6773223a5b7b2261666665637465645f736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c2261666665637465645f7461726765745f6375655f696473223a5b227461726765743a303030303031225d2c22626c6f636b696e67223a747275652c22646f6d61696e223a226e61747572616c6e657373222c2266696e64696e675f6964223a2266696e64696e672d31222c2270726f626c656d223a22546865206c696e65207265616473206c696b652061206c69746572616c207472616e736c6174696f6e2e222c2272657175697265645f6368616e6765223a2252657772697465206974206173206e61747572616c20656e2d5553206469616c6f6775652e222c227265736f6c7574696f6e5f737461747573223a226f70656e222c227365766572697479223a226d616a6f72227d5d2c22726573756c74223a226661696c6564222c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d7265766965772e7631227d",
+      "content_digest": "de8f64d27f672c1f584fd5b7cd7e15a598122cc1f735f931af96152a7b26116a",
+      "record_projection": {
+        "schema_version": "translation-review.v1",
+        "review_id": "review-1",
+        "content_digest": "de8f64d27f672c1f584fd5b7cd7e15a598122cc1f735f931af96152a7b26116a",
+        "binding": {
+          "translation_document_id": "translation-document",
+          "translation_revision_id": "translation-revision",
+          "candidate_content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+          "source_document_id": "source-document",
+          "source_revision_id": "source-revision",
+          "source_content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+          "prepared_context_asset_id": "prepared-context",
+          "prepared_context_revision_id": "prepared-context-revision",
+          "prepared_context_content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+          "glossary_asset_id": "glossary",
+          "glossary_revision_id": "glossary-revision",
+          "glossary_content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+          "review_profile": {
+            "profile_id": "en-us-editorial-review",
+            "version": "2.0"
+          }
+        },
+        "coverage": {
+          "source_cue_ids": [
+            "source:ass-dialogue:000001"
+          ],
+          "target_cue_ids": [
+            "target:000001"
+          ],
+          "target_boundary_pairs": [],
+          "glossary_entry_ids": [
+            "sera-name"
+          ]
+        },
+        "result": "failed",
+        "findings": [
+          {
+            "finding_id": "finding-1",
+            "affected_source_cue_ids": [
+              "source:ass-dialogue:000001"
+            ],
+            "affected_target_cue_ids": [
+              "target:000001"
+            ],
+            "domain": "naturalness",
+            "severity": "major",
+            "blocking": true,
+            "problem": "The line reads like a literal translation.",
+            "required_change": "Rewrite it as natural en-US dialogue.",
+            "resolution_status": "open"
+          }
+        ],
+        "provenance": {
+          "review_kind": "independent_ai",
+          "reviewer_execution_ids": [
+            "execution-1"
+          ],
+          "model": "model-id",
+          "completed_at": "2026-08-07T09:00:00Z"
+        }
+      },
+      "record_canonical_json": "{\"binding\":{\"candidate_content_digest\":\"f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c\",\"glossary_asset_id\":\"glossary\",\"glossary_content_digest\":\"85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07\",\"glossary_revision_id\":\"glossary-revision\",\"prepared_context_asset_id\":\"prepared-context\",\"prepared_context_content_digest\":\"bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782\",\"prepared_context_revision_id\":\"prepared-context-revision\",\"review_profile\":{\"profile_id\":\"en-us-editorial-review\",\"version\":\"2.0\"},\"source_content_digest\":\"8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5\",\"source_document_id\":\"source-document\",\"source_revision_id\":\"source-revision\",\"translation_document_id\":\"translation-document\",\"translation_revision_id\":\"translation-revision\"},\"content_digest\":\"de8f64d27f672c1f584fd5b7cd7e15a598122cc1f735f931af96152a7b26116a\",\"coverage\":{\"glossary_entry_ids\":[\"sera-name\"],\"source_cue_ids\":[\"source:ass-dialogue:000001\"],\"target_boundary_pairs\":[],\"target_cue_ids\":[\"target:000001\"]},\"findings\":[{\"affected_source_cue_ids\":[\"source:ass-dialogue:000001\"],\"affected_target_cue_ids\":[\"target:000001\"],\"blocking\":true,\"domain\":\"naturalness\",\"finding_id\":\"finding-1\",\"problem\":\"The line reads like a literal translation.\",\"required_change\":\"Rewrite it as natural en-US dialogue.\",\"resolution_status\":\"open\",\"severity\":\"major\"}],\"provenance\":{\"completed_at\":\"2026-08-07T09:00:00Z\",\"model\":\"model-id\",\"review_kind\":\"independent_ai\",\"reviewer_execution_ids\":[\"execution-1\"]},\"result\":\"failed\",\"review_id\":\"review-1\",\"schema_version\":\"translation-review.v1\"}",
+      "record_utf8_hex": "7b2262696e64696e67223a7b2263616e6469646174655f636f6e74656e745f646967657374223a2266383566306437396434666365323436333861613836366431656437643037376265643161393265313766323732323064633561643363386562643933343763222c22676c6f73736172795f61737365745f6964223a22676c6f7373617279222c22676c6f73736172795f636f6e74656e745f646967657374223a2238356438663635396132383666616532393937343932653535326466363663356166663162666631313464396365373833333165616635353138373064633037222c22676c6f73736172795f7265766973696f6e5f6964223a22676c6f73736172792d7265766973696f6e222c2270726570617265645f636f6e746578745f61737365745f6964223a2270726570617265642d636f6e74657874222c2270726570617265645f636f6e746578745f636f6e74656e745f646967657374223a2262626637333937366238373165623735623138656335353433333161303165626565643666623430383934306266313037376132663062396537326266373832222c2270726570617265645f636f6e746578745f7265766973696f6e5f6964223a2270726570617265642d636f6e746578742d7265766973696f6e222c227265766965775f70726f66696c65223a7b2270726f66696c655f6964223a22656e2d75732d656469746f7269616c2d726576696577222c2276657273696f6e223a22322e30227d2c22736f757263655f636f6e74656e745f646967657374223a2238623237623938396537666238323535376233363466623731323030646566613831346637613762613236643337396634613533396433366431323434656435222c22736f757263655f646f63756d656e745f6964223a22736f757263652d646f63756d656e74222c22736f757263655f7265766973696f6e5f6964223a22736f757263652d7265766973696f6e222c227472616e736c6174696f6e5f646f63756d656e745f6964223a227472616e736c6174696f6e2d646f63756d656e74222c227472616e736c6174696f6e5f7265766973696f6e5f6964223a227472616e736c6174696f6e2d7265766973696f6e227d2c22636f6e74656e745f646967657374223a2264653866363464323766363732633166353834666435623763643765313561353938313232636331663733356639333161663936313532613762323631313661222c22636f766572616765223a7b22676c6f73736172795f656e7472795f696473223a5b22736572612d6e616d65225d2c22736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c227461726765745f626f756e646172795f7061697273223a5b5d2c227461726765745f6375655f696473223a5b227461726765743a303030303031225d7d2c2266696e64696e6773223a5b7b2261666665637465645f736f757263655f6375655f696473223a5b22736f757263653a6173732d6469616c6f6775653a303030303031225d2c2261666665637465645f7461726765745f6375655f696473223a5b227461726765743a303030303031225d2c22626c6f636b696e67223a747275652c22646f6d61696e223a226e61747572616c6e657373222c2266696e64696e675f6964223a2266696e64696e672d31222c2270726f626c656d223a22546865206c696e65207265616473206c696b652061206c69746572616c207472616e736c6174696f6e2e222c2272657175697265645f6368616e6765223a2252657772697465206974206173206e61747572616c20656e2d5553206469616c6f6775652e222c227265736f6c7574696f6e5f737461747573223a226f70656e222c227365766572697479223a226d616a6f72227d5d2c2270726f76656e616e6365223a7b22636f6d706c657465645f6174223a22323032362d30382d30375430393a30303a30305a222c226d6f64656c223a226d6f64656c2d6964222c227265766965775f6b696e64223a22696e646570656e64656e745f6169222c2272657669657765725f657865637574696f6e5f696473223a5b22657865637574696f6e2d31225d7d2c22726573756c74223a226661696c6564222c227265766965775f6964223a227265766965772d31222c22736368656d615f76657273696f6e223a227472616e736c6174696f6e2d7265766965772e7631227d",
+      "record_digest": "6643a79ea02367b0bd796ceea0c4e68f343e7e075514cc7ca98994334500ef72"
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "$defs": {
+    "CanonicalReviewFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_source_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "affected_target_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "domain": {
+          "$ref": "#/$defs/ReviewDomain"
+        },
+        "finding_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "problem": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required_change": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "resolution_status": {
+          "const": "open",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/FindingSeverity"
+        }
+      },
+      "required": [
+        "finding_id",
+        "affected_source_cue_ids",
+        "affected_target_cue_ids",
+        "domain",
+        "severity",
+        "blocking",
+        "problem",
+        "required_change"
+      ],
+      "type": "object"
+    },
+    "CanonicalReviewKind": {
+      "description": "Provenance class for one review artifact.",
+      "enum": [
+        "independent_ai",
+        "isolated_self_review",
+        "human_review"
+      ],
+      "title": "CanonicalReviewKind",
+      "type": "string"
+    },
+    "FindingSeverity": {
+      "description": "Reviewer-assigned impact severity.",
+      "enum": [
+        "minor",
+        "major",
+        "critical"
+      ],
+      "title": "FindingSeverity",
+      "type": "string"
+    },
+    "ReviewArtifactResult": {
+      "description": "Stored outcome for one exact review binding.",
+      "enum": [
+        "passed",
+        "failed"
+      ],
+      "title": "ReviewArtifactResult",
+      "type": "string"
+    },
+    "ReviewBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "candidate_content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "glossary_asset_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "glossary_content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "glossary_revision_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prepared_context_asset_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prepared_context_content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prepared_context_revision_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "review_profile": {
+          "$ref": "#/$defs/ReviewProfile"
+        },
+        "selection_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "source_document_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_revision_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "translation_document_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "translation_revision_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "translation_document_id",
+        "translation_revision_id",
+        "candidate_content_digest",
+        "source_document_id",
+        "source_revision_id",
+        "source_content_digest",
+        "prepared_context_asset_id",
+        "prepared_context_revision_id",
+        "prepared_context_content_digest",
+        "glossary_asset_id",
+        "glossary_revision_id",
+        "glossary_content_digest",
+        "review_profile"
+      ],
+      "type": "object"
+    },
+    "ReviewCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "glossary_entry_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "source_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "target_boundary_pairs": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "minLength": 1,
+                "type": "string"
+              }
+            ],
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "target_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_cue_ids",
+        "target_cue_ids",
+        "target_boundary_pairs",
+        "glossary_entry_ids"
+      ],
+      "type": "object"
+    },
+    "ReviewDomain": {
+      "description": "Closed v1 review capability tags.",
+      "enum": [
+        "fidelity",
+        "speaker",
+        "culture",
+        "lyrics",
+        "naturalness",
+        "segmentation"
+      ],
+      "title": "ReviewDomain",
+      "type": "string"
+    },
+    "ReviewProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "profile_id",
+        "version"
+      ],
+      "type": "object"
+    },
+    "ReviewProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_at": {
+          "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "review_kind": {
+          "$ref": "#/$defs/CanonicalReviewKind"
+        },
+        "reviewer_execution_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "review_kind",
+        "reviewer_execution_ids",
+        "completed_at"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "binding": {
+      "$ref": "#/$defs/ReviewBinding"
+    },
+    "content_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "coverage": {
+      "$ref": "#/$defs/ReviewCoverage"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/CanonicalReviewFinding"
+      },
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ReviewProvenance"
+    },
+    "record_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "result": {
+      "$ref": "#/$defs/ReviewArtifactResult"
+    },
+    "review_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "translation-review.v1",
+      "type": "string"
+    },
+    "supersedes_review_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "review_id",
+    "content_digest",
+    "record_digest",
+    "binding",
+    "coverage",
+    "result",
+    "findings",
+    "provenance"
+  ],
+  "type": "object"
+}

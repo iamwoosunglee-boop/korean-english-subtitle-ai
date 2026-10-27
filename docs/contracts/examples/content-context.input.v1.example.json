@@ -1,0 +1,28 @@
+{
+  "schema_version": "content-context.v1",
+  "asset_id": "input-context",
+  "revision_id": "input-context-revision",
+  "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b",
+  "record_digest": "56db27c77a34faabf6cb3f531e2404da66b28d9200e24b39c7b9633434f75d3a",
+  "stage": "input",
+  "lifecycle_status": "ready",
+  "program": "토크라운지",
+  "episode_summary": "은하섬이 진행하고 NOVA NOVA가 출연하는 음악 토크쇼",
+  "evidence": {
+    "base_uri": "./evidence/",
+    "entries": []
+  },
+  "participants": [
+    {
+      "participant_id": "kim-yuna",
+      "name_ko": "한지아",
+      "name_en": "Han Jia",
+      "aliases": [
+        "한지아"
+      ],
+      "role": "Eunhaseom vocalist and host",
+      "evidence_ids": []
+    }
+  ],
+  "facts": []
+}

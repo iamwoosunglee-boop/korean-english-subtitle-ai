@@ -1,0 +1,45 @@
+{
+  "schema_version": "source-transcript.v2",
+  "document_id": "source-document",
+  "revision_id": "source-revision",
+  "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+  "record_digest": "1501fd9cb08269fedb527a4b6494ac64e949c40aa67094b5ff6c1e131e0bb13f",
+  "lifecycle_status": "draft",
+  "source_locale": "ko-KR",
+  "duration_ms": 2000,
+  "input_context_ref": {
+    "asset_id": "input-context",
+    "revision_id": "input-context-revision",
+    "content_digest": "895f5817c9bdc497ade3ca8627c0b742694a605a16dfdfaff4d8b7fc1c37058b",
+    "path": "../assets/input-context.json"
+  },
+  "evidence": {
+    "base_uri": "./evidence/",
+    "entries": [
+      {
+        "evidence_id": "frame-1",
+        "kind": "frame",
+        "media_type": "image/jpeg",
+        "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "locator": "frame-1.jpg",
+        "pts_ms": 500
+      }
+    ]
+  },
+  "cues": [
+    {
+      "sequence": 1,
+      "cue_id": "source:ass-dialogue:000001",
+      "start_ms": 0,
+      "end_ms": 1000,
+      "text": "토크 라운지에 오신",
+      "speakers": [
+        "한지아"
+      ],
+      "content_kind": "dialogue",
+      "evidence_ids": [
+        "frame-1"
+      ]
+    }
+  ]
+}

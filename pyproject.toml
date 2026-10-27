@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "transcription-module"
+version = "0.1.0"
+description = "Agent-driven Korean video transcription workflow"
+requires-python = ">=3.13"
+dependencies = [
+  "anyio>=4.12,<5",
+  "mlx-whisper==0.4.3",
+  "pyannote-audio>=4.0.7",
+  "pydantic>=2.12,<3",
+  "typer>=0.21,<1",
+  "yt-dlp>=2026.7.4",
+]
+
+[dependency-groups]
+dev = [
+  "basedpyright>=1.37",
+  "jsonschema>=4.25",
+  "pytest>=9",
+  "ruff>=0.14",
+]
+
+[project.scripts]
+transcription-cli = "transcription_module.cli:app"
+translation-cli = "translation_module.cli:app"
+dashboard-cli = "dashboard_module.cli:app"
+workbench-cli = "workbench_module.cli:app"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/transcription_module",
+  "src/translation_module",
+  "src/dashboard_module",
+  "src/workbench_module",
+]
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+  "src/transcription_module",
+  "src/translation_module",
+  "src/dashboard_module",
+  "src/workbench_module",
+  "pyproject.toml",
+  "README.md",
+  "CONTEXT.md",
+  "docs",
+]

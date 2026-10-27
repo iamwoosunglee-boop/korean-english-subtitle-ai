@@ -1,0 +1,44 @@
+{
+  "schema_version": "translation-glossary.v1",
+  "asset_id": "glossary",
+  "revision_id": "glossary-revision",
+  "content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+  "record_digest": "65447b5a7ce693cf5180dc65784320d724b0a5dc97af8f007d7b04b04b0356bb",
+  "lifecycle_status": "draft",
+  "prepared_from_source_ref": {
+    "document_id": "source-document",
+    "revision_id": "source-revision",
+    "content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+    "path": "../source/source.json"
+  },
+  "evidence": {
+    "base_uri": "./evidence/",
+    "entries": [
+      {
+        "evidence_id": "frame-1",
+        "kind": "frame",
+        "media_type": "image/jpeg",
+        "resource_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "locator": "frame-1.jpg",
+        "pts_ms": 500
+      }
+    ]
+  },
+  "entries": [
+    {
+      "entry_id": "sera-name",
+      "source_variants": [
+        "세라"
+      ],
+      "preferred_target": "Sera",
+      "type": "person_name",
+      "instruction": "Use the official stage name.",
+      "scope_source_cue_ids": [],
+      "decision_status": "verified",
+      "blocking": false,
+      "case_sensitive": true,
+      "evidence_ids": [],
+      "note": "Official English spelling"
+    }
+  ]
+}

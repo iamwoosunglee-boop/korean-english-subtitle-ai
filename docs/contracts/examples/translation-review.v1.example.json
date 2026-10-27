@@ -1,0 +1,62 @@
+{
+  "schema_version": "translation-review.v1",
+  "review_id": "review-1",
+  "content_digest": "de8f64d27f672c1f584fd5b7cd7e15a598122cc1f735f931af96152a7b26116a",
+  "record_digest": "6643a79ea02367b0bd796ceea0c4e68f343e7e075514cc7ca98994334500ef72",
+  "binding": {
+    "translation_document_id": "translation-document",
+    "translation_revision_id": "translation-revision",
+    "candidate_content_digest": "f85f0d79d4fce24638aa866d1ed7d077bed1a92e17f27220dc5ad3c8ebd9347c",
+    "source_document_id": "source-document",
+    "source_revision_id": "source-revision",
+    "source_content_digest": "8b27b989e7fb82557b364fb71200defa814f7a7ba26d379f4a539d36d1244ed5",
+    "prepared_context_asset_id": "prepared-context",
+    "prepared_context_revision_id": "prepared-context-revision",
+    "prepared_context_content_digest": "bbf73976b871eb75b18ec554331a01ebeed6fb408940bf1077a2f0b9e72bf782",
+    "glossary_asset_id": "glossary",
+    "glossary_revision_id": "glossary-revision",
+    "glossary_content_digest": "85d8f659a286fae2997492e552df66c5aff1bff114d9ce78331eaf551870dc07",
+    "review_profile": {
+      "profile_id": "en-us-editorial-review",
+      "version": "2.0"
+    }
+  },
+  "coverage": {
+    "source_cue_ids": [
+      "source:ass-dialogue:000001"
+    ],
+    "target_cue_ids": [
+      "target:000001"
+    ],
+    "target_boundary_pairs": [],
+    "glossary_entry_ids": [
+      "sera-name"
+    ]
+  },
+  "result": "failed",
+  "findings": [
+    {
+      "finding_id": "finding-1",
+      "affected_source_cue_ids": [
+        "source:ass-dialogue:000001"
+      ],
+      "affected_target_cue_ids": [
+        "target:000001"
+      ],
+      "domain": "naturalness",
+      "severity": "major",
+      "blocking": true,
+      "problem": "The line reads like a literal translation.",
+      "required_change": "Rewrite it as natural en-US dialogue.",
+      "resolution_status": "open"
+    }
+  ],
+  "provenance": {
+    "review_kind": "independent_ai",
+    "reviewer_execution_ids": [
+      "execution-1"
+    ],
+    "model": "model-id",
+    "completed_at": "2026-08-07T09:00:00Z"
+  }
+}

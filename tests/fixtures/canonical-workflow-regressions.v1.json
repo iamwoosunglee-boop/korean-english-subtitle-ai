@@ -1,0 +1,105 @@
+{
+  "schema_version": "canonical-workflow-regressions.v1",
+  "cases": {
+    "unresolved_speech": {
+      "transcript": {
+        "run_id": "fixture-run",
+        "workflow_status": "ready_for_validation",
+        "validation_status": "pending",
+        "duration_ms": 2000,
+        "cues": [{
+          "sequence": 1,
+          "cue_id": "cue-unresolved",
+          "start_tc_ms": 0,
+          "end_tc_ms": 1000,
+          "speech": "확인이 필요한 발화",
+          "speaker": "화자-가",
+          "uncertainty": "needs_confirmation",
+          "screen_text": null,
+          "vision_evidence_ids": []
+        }],
+        "vision_evidence": []
+      },
+      "expected_codes": ["unresolved_speech"],
+      "expected_cue_ids": ["cue-unresolved"]
+    },
+    "empty_speaker": {
+      "transcript": {
+        "run_id": "fixture-run",
+        "workflow_status": "ready_for_validation",
+        "validation_status": "pending",
+        "duration_ms": 2000,
+        "cues": [{
+          "sequence": 1,
+          "cue_id": "cue-empty-speaker",
+          "start_tc_ms": 0,
+          "end_tc_ms": 1000,
+          "speech": "화자 소유권이 필요한 발화",
+          "speaker": "   ",
+          "uncertainty": "certain",
+          "screen_text": null,
+          "vision_evidence_ids": []
+        }],
+        "vision_evidence": []
+      },
+      "expected_codes": ["invalid_speaker"],
+      "expected_cue_ids": ["cue-empty-speaker"]
+    },
+    "incomplete_confirmation_closure": {
+      "confirmation_records": [
+        {"kind": "request", "confirmation_id": "confirmation-open"}
+      ],
+      "expected_outcome": "blocked"
+    },
+    "distinct_speaker_simultaneous_repetition": {
+      "transcript": {
+        "run_id": "fixture-run",
+        "workflow_status": "ready_for_validation",
+        "validation_status": "pending",
+        "duration_ms": 2000,
+        "cues": [
+          {
+            "sequence": 1,
+            "cue_id": "cue-speaker-a",
+            "start_tc_ms": 500,
+            "end_tc_ms": 1000,
+            "speech": "동시 발화",
+            "speaker": "화자-가",
+            "uncertainty": "certain",
+            "screen_text": null,
+            "vision_evidence_ids": []
+          },
+          {
+            "sequence": 2,
+            "cue_id": "cue-speaker-b",
+            "start_tc_ms": 500,
+            "end_tc_ms": 1000,
+            "speech": "동시 발화",
+            "speaker": "화자-나",
+            "uncertainty": "certain",
+            "screen_text": null,
+            "vision_evidence_ids": []
+          }
+        ],
+        "vision_evidence": []
+      },
+      "expected_codes": [],
+      "expected_cue_ids": ["cue-speaker-a", "cue-speaker-b"]
+    },
+    "stale_confirmation_after_source_edit": {
+      "confirmation_records": [{
+        "kind": "request",
+        "confirmation_id": "confirmation-stale",
+        "working_transcript_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }],
+      "current_working_transcript_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expected_outcome": "stale"
+    },
+    "unapproved_review_non_mutation": {
+      "review_records": [
+        {"kind": "proposal", "proposal_id": "proposal-unapproved"}
+      ],
+      "expected_outcome": "unchanged"
+    }
+  }
+}

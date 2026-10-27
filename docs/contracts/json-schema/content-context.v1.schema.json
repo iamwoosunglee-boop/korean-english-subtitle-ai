@@ -1,0 +1,290 @@
+{
+  "$defs": {
+    "AssetLifecycleStatus": {
+      "description": "Preparation lifecycle for context and glossary revisions.",
+      "enum": [
+        "draft",
+        "ready"
+      ],
+      "title": "AssetLifecycleStatus",
+      "type": "string"
+    },
+    "CanonicalEvidenceEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/CanonicalEvidenceKind"
+        },
+        "locator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "pts_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "resource_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "kind",
+        "media_type",
+        "resource_digest",
+        "locator"
+      ],
+      "type": "object"
+    },
+    "CanonicalEvidenceKind": {
+      "description": "External evidence resource category.",
+      "enum": [
+        "frame",
+        "image",
+        "text"
+      ],
+      "title": "CanonicalEvidenceKind",
+      "type": "string"
+    },
+    "CanonicalEvidenceManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "base_uri": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEvidenceEntry"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "base_uri",
+        "entries"
+      ],
+      "type": "object"
+    },
+    "ContextDecisionStatus": {
+      "description": "Authority level for one context fact.",
+      "enum": [
+        "verified",
+        "human_confirmed",
+        "unresolved"
+      ],
+      "title": "ContextDecisionStatus",
+      "type": "string"
+    },
+    "ContextFact": {
+      "additionalProperties": false,
+      "properties": {
+        "blocking": {
+          "type": "boolean"
+        },
+        "decision_status": {
+          "$ref": "#/$defs/ContextDecisionStatus"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "participant_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scope_source_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "statement": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact_id",
+        "statement",
+        "participant_ids",
+        "scope_source_cue_ids",
+        "evidence_ids",
+        "decision_status",
+        "blocking"
+      ],
+      "type": "object"
+    },
+    "ContextParticipant": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name_en": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name_ko": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "participant_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "participant_id",
+        "name_ko",
+        "aliases",
+        "evidence_ids"
+      ],
+      "type": "object"
+    },
+    "ContextStage": {
+      "description": "Where a context revision sits in the artifact dependency graph.",
+      "enum": [
+        "input",
+        "prepared"
+      ],
+      "title": "ContextStage",
+      "type": "string"
+    },
+    "DocumentReference": {
+      "additionalProperties": false,
+      "properties": {
+        "content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "document_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "revision_id",
+        "content_digest"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "content_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "episode_summary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence": {
+      "$ref": "#/$defs/CanonicalEvidenceManifest"
+    },
+    "facts": {
+      "items": {
+        "$ref": "#/$defs/ContextFact"
+      },
+      "type": "array"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/AssetLifecycleStatus"
+    },
+    "participants": {
+      "items": {
+        "$ref": "#/$defs/ContextParticipant"
+      },
+      "type": "array"
+    },
+    "prepared_from_source_ref": {
+      "$ref": "#/$defs/DocumentReference"
+    },
+    "program": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "content-context.v1",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/ContextStage"
+    },
+    "supersedes_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "asset_id",
+    "revision_id",
+    "content_digest",
+    "record_digest",
+    "stage",
+    "lifecycle_status",
+    "program",
+    "episode_summary",
+    "evidence",
+    "participants",
+    "facts"
+  ],
+  "type": "object"
+}

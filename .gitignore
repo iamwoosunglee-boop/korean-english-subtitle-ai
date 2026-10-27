@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.basedpyright/
+
+# Agent runtime
+.omo/senpi-task/
+
+# Agent diagnostics
+.debug-journal.md
+
+# Local transcription runs
+runs/
+
+# Local dashboard runtime
+.dashboard/

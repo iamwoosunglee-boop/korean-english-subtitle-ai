@@ -1,0 +1,263 @@
+{
+  "$defs": {
+    "AssetReference": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "revision_id",
+        "content_digest"
+      ],
+      "type": "object"
+    },
+    "CanonicalEvidenceEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/CanonicalEvidenceKind"
+        },
+        "locator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "pts_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "resource_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "kind",
+        "media_type",
+        "resource_digest",
+        "locator"
+      ],
+      "type": "object"
+    },
+    "CanonicalEvidenceKind": {
+      "description": "External evidence resource category.",
+      "enum": [
+        "frame",
+        "image",
+        "text"
+      ],
+      "title": "CanonicalEvidenceKind",
+      "type": "string"
+    },
+    "CanonicalEvidenceManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "base_uri": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/CanonicalEvidenceEntry"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "base_uri",
+        "entries"
+      ],
+      "type": "object"
+    },
+    "ContentKind": {
+      "description": "Source and target content policy category.",
+      "enum": [
+        "dialogue",
+        "lyrics",
+        "recorded_vocal",
+        "unknown"
+      ],
+      "title": "ContentKind",
+      "type": "string"
+    },
+    "DocumentLifecycleStatus": {
+      "description": "Human-owned lifecycle for source and translation revisions.",
+      "enum": [
+        "draft",
+        "finalized"
+      ],
+      "title": "DocumentLifecycleStatus",
+      "type": "string"
+    },
+    "SourceCueV2": {
+      "additionalProperties": false,
+      "properties": {
+        "content_kind": {
+          "$ref": "#/$defs/ContentKind"
+        },
+        "context_note": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "cue_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "end_ms": {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "screen_text": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "speakers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "start_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "sequence",
+        "cue_id",
+        "start_ms",
+        "end_ms",
+        "text",
+        "speakers",
+        "content_kind",
+        "evidence_ids"
+      ],
+      "type": "object"
+    },
+    "SourceFinalization": {
+      "additionalProperties": false,
+      "properties": {
+        "finalized_at": {
+          "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "finalized_by": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "finalized_at",
+        "finalized_by"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cues": {
+      "items": {
+        "$ref": "#/$defs/SourceCueV2"
+      },
+      "type": "array"
+    },
+    "document_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "duration_ms": {
+      "exclusiveMinimum": 0,
+      "type": "integer"
+    },
+    "evidence": {
+      "$ref": "#/$defs/CanonicalEvidenceManifest"
+    },
+    "finalization": {
+      "$ref": "#/$defs/SourceFinalization"
+    },
+    "input_context_ref": {
+      "$ref": "#/$defs/AssetReference"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/DocumentLifecycleStatus"
+    },
+    "record_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "source-transcript.v2",
+      "type": "string"
+    },
+    "source_locale": {
+      "const": "ko-KR",
+      "type": "string"
+    },
+    "supersedes_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "document_id",
+    "revision_id",
+    "content_digest",
+    "record_digest",
+    "lifecycle_status",
+    "source_locale",
+    "duration_ms",
+    "input_context_ref",
+    "evidence",
+    "cues"
+  ],
+  "type": "object"
+}

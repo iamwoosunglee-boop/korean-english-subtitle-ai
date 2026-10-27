@@ -1,0 +1,416 @@
+{
+  "$defs": {
+    "AssetReference": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "revision_id",
+        "content_digest"
+      ],
+      "type": "object"
+    },
+    "ContentKind": {
+      "description": "Source and target content policy category.",
+      "enum": [
+        "dialogue",
+        "lyrics",
+        "recorded_vocal",
+        "unknown"
+      ],
+      "title": "ContentKind",
+      "type": "string"
+    },
+    "DecisionStatus": {
+      "description": "Whether the document has an open human translation decision.",
+      "enum": [
+        "clear",
+        "needs_confirmation"
+      ],
+      "title": "DecisionStatus",
+      "type": "string"
+    },
+    "DocumentLifecycleStatus": {
+      "description": "Human-owned lifecycle for source and translation revisions.",
+      "enum": [
+        "draft",
+        "finalized"
+      ],
+      "title": "DocumentLifecycleStatus",
+      "type": "string"
+    },
+    "DocumentReference": {
+      "additionalProperties": false,
+      "properties": {
+        "content_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "document_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "revision_id",
+        "content_digest"
+      ],
+      "type": "object"
+    },
+    "FindingDisposition": {
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "const": "human_accepted",
+          "type": "string"
+        },
+        "finding_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "review_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "finding_id",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "LineageStatus": {
+      "description": "Confidence in one target cue's source lineage.",
+      "enum": [
+        "unassigned",
+        "needs_confirmation",
+        "confirmed"
+      ],
+      "title": "LineageStatus",
+      "type": "string"
+    },
+    "ReviewAcknowledgement": {
+      "description": "Human acknowledgement used when finalizing one translation revision.",
+      "enum": [
+        "passed",
+        "not_run_acknowledged",
+        "stale_acknowledged",
+        "failed_findings_disposed",
+        "legacy_status_imported"
+      ],
+      "title": "ReviewAcknowledgement",
+      "type": "string"
+    },
+    "ReviewDomain": {
+      "description": "Closed v1 review capability tags.",
+      "enum": [
+        "fidelity",
+        "speaker",
+        "culture",
+        "lyrics",
+        "naturalness",
+        "segmentation"
+      ],
+      "title": "ReviewDomain",
+      "type": "string"
+    },
+    "TargetCueV2": {
+      "additionalProperties": false,
+      "properties": {
+        "content_kind": {
+          "$ref": "#/$defs/ContentKind"
+        },
+        "context_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cue_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "end_ms": {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "evidence_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lineage_status": {
+          "$ref": "#/$defs/LineageStatus"
+        },
+        "sequence": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "source_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "speakers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "start_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "text": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "translation_note": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "sequence",
+        "cue_id",
+        "source_cue_ids",
+        "lineage_status",
+        "start_ms",
+        "end_ms",
+        "text",
+        "speakers",
+        "content_kind",
+        "context_ids",
+        "evidence_ids"
+      ],
+      "type": "object"
+    },
+    "TranslationFinalization": {
+      "additionalProperties": false,
+      "properties": {
+        "finalized_at": {
+          "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "finalized_by": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "finding_dispositions": {
+          "items": {
+            "$ref": "#/$defs/FindingDisposition"
+          },
+          "type": "array"
+        },
+        "review_acknowledgement": {
+          "$ref": "#/$defs/ReviewAcknowledgement"
+        }
+      },
+      "required": [
+        "finalized_at",
+        "finalized_by",
+        "review_acknowledgement",
+        "finding_dispositions"
+      ],
+      "type": "object"
+    },
+    "TranslationOption": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "option_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "risk": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "option_id",
+        "text",
+        "meaning",
+        "risk"
+      ],
+      "type": "object"
+    },
+    "UnresolvedDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "domain": {
+          "$ref": "#/$defs/ReviewDomain"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/TranslationOption"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "question": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recommendation_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "target_cue_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "decision_id",
+        "source_cue_ids",
+        "target_cue_ids",
+        "domain",
+        "question",
+        "options",
+        "recommendation_id"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cues": {
+      "items": {
+        "$ref": "#/$defs/TargetCueV2"
+      },
+      "type": "array"
+    },
+    "decision_status": {
+      "$ref": "#/$defs/DecisionStatus"
+    },
+    "document_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "finalization": {
+      "$ref": "#/$defs/TranslationFinalization"
+    },
+    "glossary_ref": {
+      "$ref": "#/$defs/AssetReference"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/DocumentLifecycleStatus"
+    },
+    "prepared_context_ref": {
+      "$ref": "#/$defs/AssetReference"
+    },
+    "record_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "translation-document.v2",
+      "type": "string"
+    },
+    "source_locale": {
+      "const": "ko-KR",
+      "type": "string"
+    },
+    "source_ref": {
+      "$ref": "#/$defs/DocumentReference"
+    },
+    "supersedes_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_locale": {
+      "const": "en-US",
+      "type": "string"
+    },
+    "unresolved_decisions": {
+      "items": {
+        "$ref": "#/$defs/UnresolvedDecision"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "document_id",
+    "revision_id",
+    "content_digest",
+    "record_digest",
+    "source_ref",
+    "prepared_context_ref",
+    "glossary_ref",
+    "lifecycle_status",
+    "decision_status",
+    "cues",
+    "unresolved_decisions"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,323 @@
+{
+  "schema_version": "visual-correction-regressions.v1",
+  "generation_inputs": {
+    "frames": [
+      {"frame_id": "f001", "pts_ms": 1000},
+      {"frame_id": "f002", "pts_ms": 1200},
+      {"frame_id": "f003", "pts_ms": 2200},
+      {"frame_id": "f004", "pts_ms": 3200},
+      {"frame_id": "f005", "pts_ms": 4200},
+      {"frame_id": "f006", "pts_ms": 5000},
+      {"frame_id": "f007", "pts_ms": 5300},
+      {"frame_id": "f008", "pts_ms": 6200},
+      {"frame_id": "f009", "pts_ms": 7200},
+      {"frame_id": "f010", "pts_ms": 8200},
+      {"frame_id": "f011", "pts_ms": 9000},
+      {"frame_id": "f012", "pts_ms": 9400},
+      {"frame_id": "f013", "pts_ms": 10200},
+      {"frame_id": "f014", "pts_ms": 11200},
+      {"frame_id": "f015", "pts_ms": 12200},
+      {"frame_id": "f016", "pts_ms": 13200},
+      {"frame_id": "f017", "pts_ms": 14200},
+      {"frame_id": "f018", "pts_ms": 15200},
+      {"frame_id": "f019", "pts_ms": 17200},
+      {"frame_id": "f020", "pts_ms": 18200}
+    ],
+    "asr_segments": [
+      {"ordinal": 1, "start_ms": 900, "end_ms": 1800, "speech": "오늘은 아주 긴 이야기를 들려드릴게요"},
+      {"ordinal": 2, "start_ms": 1900, "end_ms": 2700, "speech": "정말 좋았어요"},
+      {"ordinal": 3, "start_ms": 2900, "end_ms": 3700, "speech": "서울에서 다시 만났어요"},
+      {"ordinal": 4, "start_ms": 3900, "end_ms": 4900, "speech": "브룸 타키를 불러볼게요"},
+      {"ordinal": 5, "start_ms": 5900, "end_ms": 6700, "speech": "배경 음악만 재생됩니다"},
+      {"ordinal": 6, "start_ms": 8800, "end_ms": 10100, "speech": "동시에 대답해요"},
+      {"ordinal": 7, "start_ms": 10900, "end_ms": 11900, "speech": "원문 한국어 발화"},
+      {"ordinal": 8, "start_ms": 14900, "end_ms": 16100, "speech": "첫 번째 말 다음 두 번째 말"},
+      {"ordinal": 9, "start_ms": 16900, "end_ms": 17900, "speech": "겹친 창 문맥 발화"},
+      {"ordinal": 10, "start_ms": 17900, "end_ms": 18900, "speech": "이미 확인된 발화"}
+    ],
+    "vad_intervals": [
+      {"interval_id": "vad-1", "start_ms": 800, "end_ms": 1900, "speech_present": true},
+      {"interval_id": "vad-2", "start_ms": 2800, "end_ms": 5000, "speech_present": true},
+      {"interval_id": "vad-3", "start_ms": 4900, "end_ms": 5700, "speech_present": true},
+      {"interval_id": "vad-negative", "start_ms": 5900, "end_ms": 6700, "speech_present": false},
+      {"interval_id": "vad-4", "start_ms": 8700, "end_ms": 10900, "speech_present": true},
+      {"interval_id": "vad-5", "start_ms": 10800, "end_ms": 12900, "speech_present": true},
+      {"interval_id": "vad-6", "start_ms": 12800, "end_ms": 14900, "speech_present": true},
+      {"interval_id": "vad-7", "start_ms": 14800, "end_ms": 16900, "speech_present": true},
+      {"interval_id": "vad-8", "start_ms": 16800, "end_ms": 18900, "speech_present": true}
+    ],
+    "subtitle_tracks": [
+      {
+        "track_id": "track-ko-orig",
+        "variant": "ko-orig",
+        "source": "automatic",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "eligible_for_generation": true,
+        "cues": [
+          {"cue_id": "sub-orig-1", "start_ms": 900, "end_ms": 1800, "text": "오늘은 긴 이야기를 들려드릴게요"},
+          {"cue_id": "sub-orig-2", "start_ms": 2900, "end_ms": 3700, "text": "서울에서 다시 만났어요"},
+          {"cue_id": "sub-orig-3", "start_ms": 4900, "end_ms": 5700, "text": "화면으로만 복원되는 발화"},
+          {"cue_id": "sub-orig-4", "start_ms": 12900, "end_ms": 13700, "text": "두 번 말해요"},
+          {"cue_id": "sub-orig-5", "start_ms": 13900, "end_ms": 14700, "text": "두 번 말해요"}
+        ]
+      },
+      {
+        "track_id": "track-ko-duplicate",
+        "variant": "ko",
+        "source": "automatic",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "eligible_for_generation": false,
+        "cues": [
+          {"cue_id": "sub-ko-1", "start_ms": 900, "end_ms": 1800, "text": "오늘은 긴 이야기를 들려드릴게요"}
+        ]
+      },
+      {
+        "track_id": "track-ko-en",
+        "variant": "ko-en",
+        "source": "automatic",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "eligible_for_generation": false,
+        "cues": [
+          {"cue_id": "sub-ko-en-1", "start_ms": 10900, "end_ms": 11900, "text": "Original Korean utterance"}
+        ]
+      },
+      {
+        "track_id": "track-manual-ko",
+        "variant": "ko",
+        "source": "manual",
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "eligible_for_generation": false,
+        "cues": [
+          {"cue_id": "sub-manual-1", "start_ms": 14900, "end_ms": 16100, "text": "첫 번째 말과 두 번째 말"}
+        ]
+      }
+    ]
+  },
+  "reference_only": {
+    "ass_path": "runs/64ba00b6-045d-41f7-8f4a-8aa5f685b7f0/transcript.ass",
+    "alignment_basis": "source_identity_time_speaker",
+    "comparable_intervals": [
+      {"interval_id": "cmp-condensed", "source_identity": {"source_cue_ids": ["src-condensed"], "speaker": "루미", "turn_id": "turn-condensed"}, "start_ms": 1000, "end_ms": 1800, "ass_event_ids": ["ass-001"]},
+      {"interval_id": "cmp-telop", "source_identity": {"source_cue_ids": ["src-telop"], "speaker": "한지아", "turn_id": "turn-telop"}, "start_ms": 2000, "end_ms": 2600, "ass_event_ids": ["ass-002"]},
+      {"interval_id": "cmp-local", "source_identity": {"source_cue_ids": ["src-local"], "speaker": "루미", "turn_id": "turn-local"}, "start_ms": 3000, "end_ms": 3600, "ass_event_ids": ["ass-003"]},
+      {"interval_id": "cmp-full", "source_identity": {"source_cue_ids": ["src-full"], "speaker": "한지아", "turn_id": "turn-full"}, "start_ms": 4000, "end_ms": 4800, "ass_event_ids": ["ass-004"]},
+      {"interval_id": "cmp-insert", "source_identity": {"source_cue_ids": ["src-insert"], "speaker": "루미", "turn_id": "turn-insert"}, "start_ms": 5000, "end_ms": 5600, "ass_event_ids": ["ass-005"]},
+      {"interval_id": "cmp-vad-negative", "source_identity": {"source_cue_ids": ["src-vad-negative"], "speaker": "한지아", "turn_id": "turn-vad-negative"}, "start_ms": 6000, "end_ms": 6600, "ass_event_ids": ["ass-006"]},
+      {"interval_id": "cmp-static", "source_identity": {"source_cue_ids": ["src-static"], "speaker": "제작진", "turn_id": "turn-static"}, "start_ms": 7000, "end_ms": 7600, "ass_event_ids": ["ass-007"]},
+      {"interval_id": "cmp-cut", "source_identity": {"source_cue_ids": ["src-cut"], "speaker": "루미", "turn_id": "turn-cut"}, "start_ms": 8000, "end_ms": 8600, "ass_event_ids": ["ass-008"]},
+      {"interval_id": "cmp-same-a", "source_identity": {"source_cue_ids": ["src-same-a"], "speaker": "루미", "turn_id": "turn-same-a"}, "start_ms": 9000, "end_ms": 10000, "ass_event_ids": ["ass-009"]},
+      {"interval_id": "cmp-same-b", "source_identity": {"source_cue_ids": ["src-same-b"], "speaker": "한지아", "turn_id": "turn-same-b"}, "start_ms": 9000, "end_ms": 10000, "ass_event_ids": ["ass-010"]},
+      {"interval_id": "cmp-cumulative", "source_identity": {"source_cue_ids": ["src-cumulative"], "speaker": "한지아", "turn_id": "turn-cumulative"}, "start_ms": 10000, "end_ms": 10800, "ass_event_ids": ["ass-011"]},
+      {"interval_id": "cmp-ko-en", "source_identity": {"source_cue_ids": ["src-ko-en"], "speaker": "루미", "turn_id": "turn-ko-en"}, "start_ms": 11000, "end_ms": 11800, "ass_event_ids": ["ass-012"]},
+      {"interval_id": "cmp-duplicate", "source_identity": {"source_cue_ids": ["src-duplicate"], "speaker": "루미", "turn_id": "turn-duplicate"}, "start_ms": 12000, "end_ms": 12800, "ass_event_ids": ["ass-013"]},
+      {"interval_id": "cmp-repeat-a", "source_identity": {"source_cue_ids": ["src-repeat-a"], "speaker": "루미", "turn_id": "turn-repeat-a"}, "start_ms": 13000, "end_ms": 13800, "ass_event_ids": ["ass-014"]},
+      {"interval_id": "cmp-repeat-b", "source_identity": {"source_cue_ids": ["src-repeat-b"], "speaker": "루미", "turn_id": "turn-repeat-b"}, "start_ms": 14000, "end_ms": 14800, "ass_event_ids": ["ass-015"]},
+      {"interval_id": "cmp-overlap", "source_identity": {"source_cue_ids": ["src-overlap-a", "src-overlap-b"], "speaker": "루미|한지아", "turn_id": "turn-overlap"}, "start_ms": 15000, "end_ms": 16000, "ass_event_ids": ["ass-016", "ass-017"]},
+      {"interval_id": "cmp-lower-third", "source_identity": {"source_cue_ids": ["src-lower-third"], "speaker": "루미", "turn_id": "turn-lower-third"}, "start_ms": 16000, "end_ms": 16800, "ass_event_ids": ["ass-018"]},
+      {"interval_id": "cmp-window-conflict", "source_identity": {"source_cue_ids": ["src-window"], "speaker": "한지아", "turn_id": "turn-window"}, "start_ms": 17000, "end_ms": 17800, "ass_event_ids": ["ass-019"]},
+      {"interval_id": "cmp-confirmed", "source_identity": {"source_cue_ids": ["src-confirmed"], "speaker": "루미", "turn_id": "turn-confirmed"}, "start_ms": 18000, "end_ms": 18800, "ass_event_ids": ["ass-020"]}
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "condensed-genuine-caption",
+      "source_identity": {"source_cue_ids": ["src-condensed"], "speaker": "루미", "turn_id": "turn-condensed"},
+      "frame_ids": ["f001", "f002"], "asr_ordinals": [1], "vad_interval_ids": ["vad-1"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-condensed"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "condensed", "expected_action": "KEEP",
+      "expected_final_cues": [{"cue_id": "out-condensed", "source_identity": {"source_cue_ids": ["src-condensed"], "speaker": "루미", "turn_id": "turn-condensed"}, "start_ms": 1000, "end_ms": 1800, "speech": "오늘은 아주 긴 이야기를 들려드릴게요", "speaker": "루미"}],
+      "expected_reason_codes": ["caption_condensed_preserve_source"]
+    },
+    {
+      "case_id": "verbatim-editorial-telop",
+      "source_identity": {"source_cue_ids": ["src-telop"], "speaker": "한지아", "turn_id": "turn-telop"},
+      "frame_ids": ["f003"], "asr_ordinals": [2], "vad_interval_ids": ["vad-1"], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-telop"],
+      "expected_role": "non_speech", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "KEEP",
+      "expected_final_cues": [{"cue_id": "out-telop", "source_identity": {"source_cue_ids": ["src-telop"], "speaker": "한지아", "turn_id": "turn-telop"}, "start_ms": 2000, "end_ms": 2600, "speech": "정말 좋았어요", "speaker": "한지아"}],
+      "expected_reason_codes": ["verbatim_editorial_not_speech_authority"]
+    },
+    {
+      "case_id": "local-span-repair",
+      "source_identity": {"source_cue_ids": ["src-local"], "speaker": "루미", "turn_id": "turn-local"},
+      "frame_ids": ["f004"], "asr_ordinals": [3], "vad_interval_ids": ["vad-2"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-local"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "REPLACE_SPAN",
+      "expected_final_cues": [{"cue_id": "out-local", "source_identity": {"source_cue_ids": ["src-local"], "speaker": "루미", "turn_id": "turn-local"}, "start_ms": 3000, "end_ms": 3600, "speech": "서울에서 다시 만났어요", "speaker": "루미"}],
+      "expected_reason_codes": ["candidate_span_exact"]
+    },
+    {
+      "case_id": "full-cue-repair",
+      "source_identity": {"source_cue_ids": ["src-full"], "speaker": "한지아", "turn_id": "turn-full"},
+      "frame_ids": ["f005"], "asr_ordinals": [4], "vad_interval_ids": ["vad-2"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-full"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "REPLACE_SPAN",
+      "expected_final_cues": [{"cue_id": "out-full", "source_identity": {"source_cue_ids": ["src-full"], "speaker": "한지아", "turn_id": "turn-full"}, "start_ms": 4000, "end_ms": 4800, "speech": "브룸 타키를 불러볼게요", "speaker": "한지아"}],
+      "expected_reason_codes": ["full_candidate_replacement"]
+    },
+    {
+      "case_id": "strong-visual-only-insertion",
+      "source_identity": {"source_cue_ids": ["src-insert"], "speaker": "루미", "turn_id": "turn-insert"},
+      "frame_ids": ["f006", "f007"], "asr_ordinals": [], "vad_interval_ids": ["vad-3"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-insert"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "INSERT_CUE",
+      "expected_final_cues": [{"cue_id": "out-insert", "source_identity": {"source_cue_ids": ["src-insert"], "speaker": "루미", "turn_id": "turn-insert"}, "start_ms": 5000, "end_ms": 5600, "speech": "화면으로만 복원되는 발화", "speaker": "루미"}],
+      "expected_reason_codes": ["two_pts_vad_single_turn"]
+    },
+    {
+      "case_id": "vad-negative-conflict",
+      "source_identity": {"source_cue_ids": ["src-vad-negative"], "speaker": "한지아", "turn_id": "turn-vad-negative"},
+      "frame_ids": ["f008"], "asr_ordinals": [5], "vad_interval_ids": ["vad-negative"], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-vad-negative"],
+      "expected_role": "unknown", "expected_state": "conflicted", "semantic_relation": "unrelated", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-vad-negative", "source_identity": {"source_cue_ids": ["src-vad-negative"], "speaker": "한지아", "turn_id": "turn-vad-negative"}, "start_ms": 6000, "end_ms": 6600, "speech": "배경 음악만 재생됩니다", "speaker": "한지아"}],
+      "expected_reason_codes": ["vad_negative"]
+    },
+    {
+      "case_id": "static-editorial-overlay",
+      "source_identity": {"source_cue_ids": ["src-static"], "speaker": "제작진", "turn_id": "turn-static"},
+      "frame_ids": ["f009"], "asr_ordinals": [], "vad_interval_ids": [], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-static"],
+      "expected_role": "non_speech", "expected_state": "supported", "semantic_relation": "unrelated", "expected_action": "KEEP",
+      "expected_final_cues": [{"cue_id": "out-static", "source_identity": {"source_cue_ids": ["src-static"], "speaker": "제작진", "turn_id": "turn-static"}, "start_ms": 7000, "end_ms": 7600, "speech": "화면 문구는 발화가 아니다", "speaker": "제작진"}],
+      "expected_reason_codes": ["static_editorial"]
+    },
+    {
+      "case_id": "cut-style-change",
+      "source_identity": {"source_cue_ids": ["src-cut"], "speaker": "루미", "turn_id": "turn-cut"},
+      "frame_ids": ["f010"], "asr_ordinals": [], "vad_interval_ids": [], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-cut"],
+      "expected_role": "unknown", "expected_state": "conflicted", "semantic_relation": "unknown", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-cut", "source_identity": {"source_cue_ids": ["src-cut"], "speaker": "루미", "turn_id": "turn-cut"}, "start_ms": 8000, "end_ms": 8600, "speech": "컷을 건너 자동 복원하지 않는다", "speaker": "루미"}],
+      "expected_reason_codes": ["cut_or_style_conflict"]
+    },
+    {
+      "case_id": "same-time-same-text-two-speakers",
+      "source_identity": {"source_cue_ids": ["src-same-a"], "speaker": "루미", "turn_id": "turn-same-a"},
+      "frame_ids": ["f011", "f012"], "asr_ordinals": [6], "vad_interval_ids": ["vad-4"], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-same-a", "cmp-same-b"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "KEEP",
+      "expected_final_cues": [
+        {"cue_id": "out-same-a", "source_identity": {"source_cue_ids": ["src-same-a"], "speaker": "루미", "turn_id": "turn-same-a"}, "start_ms": 9000, "end_ms": 10000, "speech": "동시에 대답해요", "speaker": "루미"},
+        {"cue_id": "out-same-b", "source_identity": {"source_cue_ids": ["src-same-b"], "speaker": "한지아", "turn_id": "turn-same-b"}, "start_ms": 9000, "end_ms": 10000, "speech": "동시에 대답해요", "speaker": "한지아"}
+      ],
+      "expected_reason_codes": ["distinct_turn_ownership"]
+    },
+    {
+      "case_id": "cumulative-reveal",
+      "source_identity": {"source_cue_ids": ["src-cumulative"], "speaker": "한지아", "turn_id": "turn-cumulative"},
+      "frame_ids": ["f012", "f013"], "asr_ordinals": [6], "vad_interval_ids": ["vad-4"], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-cumulative"],
+      "expected_role": "unknown", "expected_state": "conflicted", "semantic_relation": "selective", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-cumulative", "source_identity": {"source_cue_ids": ["src-cumulative"], "speaker": "한지아", "turn_id": "turn-cumulative"}, "start_ms": 10000, "end_ms": 10800, "speech": "누적 문구는 완성 전까지 보류한다", "speaker": "한지아"}],
+      "expected_reason_codes": ["cumulative_reveal_incomplete"]
+    },
+    {
+      "case_id": "derived-ko-en-track",
+      "source_identity": {"source_cue_ids": ["src-ko-en"], "speaker": "루미", "turn_id": "turn-ko-en"},
+      "frame_ids": ["f014"], "asr_ordinals": [7], "vad_interval_ids": ["vad-5"], "subtitle_track_ids": ["track-ko-en"], "comparable_interval_ids": ["cmp-ko-en"],
+      "expected_role": "unknown", "expected_state": "insufficient", "semantic_relation": "paraphrase", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-ko-en", "source_identity": {"source_cue_ids": ["src-ko-en"], "speaker": "루미", "turn_id": "turn-ko-en"}, "start_ms": 11000, "end_ms": 11800, "speech": "원문 한국어 발화", "speaker": "루미"}],
+      "expected_reason_codes": ["derived_track_forbidden"]
+    },
+    {
+      "case_id": "duplicate-subtitle-track",
+      "source_identity": {"source_cue_ids": ["src-duplicate"], "speaker": "루미", "turn_id": "turn-duplicate"},
+      "frame_ids": ["f015"], "asr_ordinals": [], "vad_interval_ids": ["vad-5"], "subtitle_track_ids": ["track-ko-orig", "track-ko-duplicate"], "comparable_interval_ids": ["cmp-duplicate"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "KEEP",
+      "expected_final_cues": [{"cue_id": "out-duplicate", "source_identity": {"source_cue_ids": ["src-duplicate"], "speaker": "루미", "turn_id": "turn-duplicate"}, "start_ms": 12000, "end_ms": 12800, "speech": "중복 바이트는 한 번만 사용한다", "speaker": "루미"}],
+      "expected_reason_codes": ["duplicate_track_bytes"]
+    },
+    {
+      "case_id": "repeated-subtitle-two-times",
+      "source_identity": {"source_cue_ids": ["src-repeat-a"], "speaker": "루미", "turn_id": "turn-repeat-a"},
+      "frame_ids": ["f016", "f017"], "asr_ordinals": [], "vad_interval_ids": ["vad-6"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-repeat-a", "cmp-repeat-b"],
+      "expected_role": "speech_supporting", "expected_state": "supported", "semantic_relation": "exact", "expected_action": "INSERT_CUE",
+      "expected_final_cues": [
+        {"cue_id": "out-repeat-a", "source_identity": {"source_cue_ids": ["src-repeat-a"], "speaker": "루미", "turn_id": "turn-repeat-a"}, "start_ms": 13000, "end_ms": 13800, "speech": "두 번 말해요", "speaker": "루미"},
+        {"cue_id": "out-repeat-b", "source_identity": {"source_cue_ids": ["src-repeat-b"], "speaker": "루미", "turn_id": "turn-repeat-b"}, "start_ms": 14000, "end_ms": 14800, "speech": "두 번 말해요", "speaker": "루미"}
+      ],
+      "expected_reason_codes": ["separate_time_identity"]
+    },
+    {
+      "case_id": "overlap-two-bound-turns",
+      "source_identity": {"source_cue_ids": ["src-overlap-a", "src-overlap-b"], "speaker": "루미|한지아", "turn_id": "turn-overlap"},
+      "frame_ids": ["f018"], "asr_ordinals": [8], "vad_interval_ids": ["vad-7"], "subtitle_track_ids": ["track-manual-ko"], "comparable_interval_ids": ["cmp-overlap"],
+      "expected_role": "unknown", "expected_state": "conflicted", "semantic_relation": "condensed", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-overlap", "source_identity": {"source_cue_ids": ["src-overlap-a", "src-overlap-b"], "speaker": "루미|한지아", "turn_id": "turn-overlap"}, "start_ms": 15000, "end_ms": 16000, "speech": "첫 번째 말\n두 번째 말", "speaker": "루미|한지아"}],
+      "expected_reason_codes": ["two_bound_turn_ambiguity", "manual_track_forbidden"]
+    },
+    {
+      "case_id": "lower-third-non-speaker",
+      "source_identity": {"source_cue_ids": ["src-lower-third"], "speaker": "루미", "turn_id": "turn-lower-third"},
+      "frame_ids": ["f018"], "asr_ordinals": [8], "vad_interval_ids": ["vad-7"], "subtitle_track_ids": [], "comparable_interval_ids": ["cmp-lower-third"],
+      "expected_role": "non_speech", "expected_state": "supported", "semantic_relation": "unrelated", "expected_action": "KEEP",
+      "expected_final_cues": [{"cue_id": "out-lower-third", "source_identity": {"source_cue_ids": ["src-lower-third"], "speaker": "루미", "turn_id": "turn-lower-third"}, "start_ms": 16000, "end_ms": 16800, "speech": "이름표는 화자를 바꾸지 않는다", "speaker": "루미"}],
+      "expected_reason_codes": ["lower_third_not_speaker_authority"]
+    },
+    {
+      "case_id": "window-duplicate-conflict",
+      "source_identity": {"source_cue_ids": ["src-window"], "speaker": "한지아", "turn_id": "turn-window"},
+      "frame_ids": ["f019"], "asr_ordinals": [9], "vad_interval_ids": ["vad-8"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-window-conflict"],
+      "expected_role": "unknown", "expected_state": "conflicted", "semantic_relation": "unknown", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-window", "source_identity": {"source_cue_ids": ["src-window"], "speaker": "한지아", "turn_id": "turn-window"}, "start_ms": 17000, "end_ms": 17800, "speech": "겹친 창 문맥 발화", "speaker": "한지아"}],
+      "expected_reason_codes": ["window_receipt_conflict"]
+    },
+    {
+      "case_id": "confirmed-field-conflict",
+      "source_identity": {"source_cue_ids": ["src-confirmed"], "speaker": "루미", "turn_id": "turn-confirmed"},
+      "frame_ids": ["f020"], "asr_ordinals": [10], "vad_interval_ids": ["vad-8"], "subtitle_track_ids": ["track-ko-orig"], "comparable_interval_ids": ["cmp-confirmed"],
+      "expected_role": "speech_supporting", "expected_state": "conflicted", "semantic_relation": "exact", "expected_action": "HOLD_FOR_CONFIRMATION",
+      "expected_final_cues": [{"cue_id": "out-confirmed", "source_identity": {"source_cue_ids": ["src-confirmed"], "speaker": "루미", "turn_id": "turn-confirmed"}, "start_ms": 18000, "end_ms": 18800, "speech": "이미 확인된 발화", "speaker": "루미"}],
+      "expected_reason_codes": ["confirmed_field_conflict"]
+    }
+  ],
+  "metric_populations": [
+    {
+      "metric_id": "meaning_accuracy",
+      "case_ids": ["condensed-genuine-caption", "verbatim-editorial-telop", "local-span-repair", "full-cue-repair", "strong-visual-only-insertion", "vad-negative-conflict", "static-editorial-overlay", "cut-style-change", "same-time-same-text-two-speakers", "cumulative-reveal", "derived-ko-en-track", "duplicate-subtitle-track", "repeated-subtitle-two-times", "overlap-two-bound-turns", "lower-third-non-speaker", "window-duplicate-conflict", "confirmed-field-conflict"],
+      "numerator_case_ids": ["condensed-genuine-caption", "verbatim-editorial-telop", "local-span-repair", "full-cue-repair", "strong-visual-only-insertion", "vad-negative-conflict", "static-editorial-overlay", "cut-style-change", "same-time-same-text-two-speakers", "cumulative-reveal", "derived-ko-en-track", "duplicate-subtitle-track", "repeated-subtitle-two-times", "overlap-two-bound-turns", "lower-third-non-speaker", "window-duplicate-conflict", "confirmed-field-conflict"],
+      "expected_denominator": 17,
+      "expected_numerator": 17,
+      "status": "counted"
+    },
+    {
+      "metric_id": "mandatory_omission",
+      "case_ids": ["local-span-repair", "full-cue-repair", "strong-visual-only-insertion", "repeated-subtitle-two-times"],
+      "numerator_case_ids": [],
+      "expected_denominator": 4,
+      "expected_numerator": 0,
+      "status": "counted"
+    },
+    {
+      "metric_id": "visual_correction",
+      "case_ids": ["local-span-repair", "full-cue-repair"],
+      "numerator_case_ids": ["local-span-repair", "full-cue-repair"],
+      "expected_denominator": 2,
+      "expected_numerator": 2,
+      "status": "counted"
+    },
+    {
+      "metric_id": "visual_gap_insertion",
+      "case_ids": ["strong-visual-only-insertion", "repeated-subtitle-two-times"],
+      "numerator_case_ids": ["strong-visual-only-insertion", "repeated-subtitle-two-times"],
+      "expected_denominator": 2,
+      "expected_numerator": 2,
+      "status": "counted"
+    },
+    {
+      "metric_id": "editorial_leakage_safety",
+      "case_ids": ["verbatim-editorial-telop", "vad-negative-conflict", "static-editorial-overlay", "cut-style-change", "cumulative-reveal", "derived-ko-en-track", "overlap-two-bound-turns", "lower-third-non-speaker", "window-duplicate-conflict", "confirmed-field-conflict"],
+      "numerator_case_ids": [],
+      "expected_denominator": 10,
+      "expected_numerator": 0,
+      "status": "counted"
+    },
+    {
+      "metric_id": "character_traceability",
+      "case_ids": ["local-span-repair", "full-cue-repair", "strong-visual-only-insertion"],
+      "numerator_case_ids": ["local-span-repair", "full-cue-repair", "strong-visual-only-insertion"],
+      "expected_denominator": 3,
+      "expected_numerator": 3,
+      "status": "counted"
+    },
+    {
+      "metric_id": "lyrics_recovery_not_applicable",
+      "case_ids": [],
+      "numerator_case_ids": [],
+      "expected_denominator": 0,
+      "expected_numerator": 0,
+      "status": "N/A"
+    }
+  ]
+}
